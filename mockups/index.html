@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<title>Propuestas de estilo — Johanna Bellorin, LCSW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Instrument+Sans:wght@400;600&family=Instrument+Serif&family=Inter:wght@400;600&family=Jost:wght@300;400;500&family=Lato:wght@400;700&family=Montserrat:wght@300;500;600;700&family=Newsreader:ital,wght@1,400&family=Noto+Sans:wght@400;700&family=Oswald:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  :root {
+    --ui: "Montserrat", system-ui, sans-serif;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e3e3e3;
+    --page: #f6f6f4;
+  }
+  body {
+    margin: 0; background: var(--page); color: var(--ink);
+    font-family: var(--ui); font-size: 15px; line-height: 1.6;
+  }
+  .wrap { max-width: 1180px; margin-inline: auto; padding: 48px 24px 96px; }
+  header.top { margin-bottom: 40px; }
+  header.top h1 { font-size: 1.75rem; margin: 0 0 6px; letter-spacing: -0.01em; }
+  header.top p { margin: 0 0 12px; color: var(--muted); max-width: 68ch; }
+  .meta { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+  a { color: inherit; }
+
+  /* --- nota de método --- */
+  .method {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    padding: 22px 24px; margin-bottom: 40px;
+  }
+  .method h2 { margin: 0 0 10px; font-size: .9375rem; }
+  .method p { margin: 0 0 10px; max-width: 78ch; }
+  .method p:last-child { margin-bottom: 0; }
+  .method ul { margin: 0 0 10px; padding-left: 20px; max-width: 78ch; }
+  .method li { margin-bottom: 4px; }
+
+  /* --- tarjeta de variante --- */
+  .v {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    margin-bottom: 32px; overflow: hidden;
+  }
+  .v > header {
+    display: flex; flex-wrap: wrap; gap: 16px; align-items: baseline;
+    justify-content: space-between;
+    padding: 20px 24px; border-bottom: 1px solid var(--line);
+  }
+  .v h2 { margin: 0; font-size: 1.125rem; }
+  .v h2 span.key {
+    display: inline-block; width: 24px; height: 24px; line-height: 24px;
+    text-align: center; border-radius: 6px; font-size: .8125rem;
+    margin-right: 8px; vertical-align: 2px; color: #fff;
+  }
+  .v h2 small { display: block; font-weight: 400; font-size: .8125rem; color: var(--muted); margin-top: 4px; }
+  .v .links a {
+    font-size: .75rem; text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px;
+    display: inline-block; transition: background .15s;
+  }
+  .v .links a:hover { background: var(--page); }
+
+  /* --- miniatura viva --- */
+  .thumb {
+    position: relative; height: 340px; overflow: hidden;
+    border-bottom: 1px solid var(--line); background: var(--page);
+  }
+  .thumb iframe {
+    position: absolute; top: 0; left: 0;
+    width: 1440px; height: 1360px; border: 0;
+    transform: scale(.402); transform-origin: 0 0;
+  }
+  .thumb .veil {
+    position: absolute; inset: 0; cursor: pointer;
+    /* deja ver la miniatura pero impide interactuar con el iframe */
+  }
+
+  .v .body { padding: 24px; display: grid; gap: 26px; }
+  @media (min-width: 920px) { .v .body { grid-template-columns: 1fr 1fr; } }
+  h3.sub {
+    font-size: .6875rem; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--muted); margin: 0 0 10px; font-weight: 600;
+  }
+
+  /* --- swatches --- */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(88px,1fr)); gap: 8px; }
+  .sw { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .sw .chip { height: 48px; }
+  .sw .lbl { padding: 5px 7px; font-size: .625rem; line-height: 1.35; }
+  .sw .lbl b { display: block; font-weight: 600; }
+  .sw .lbl code { color: var(--muted); font-size: .625rem; }
+
+  /* --- especimen tipográfico --- */
+  .spec { border-left: 3px solid var(--line); padding-left: 14px; margin-bottom: 12px; }
+  .spec .tag { font-size: .625rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); display: block; margin-bottom: 2px; }
+
+  dl.facts { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 5px 14px; font-size: .8125rem; }
+  dl.facts dt { color: var(--muted); }
+  dl.facts dd { margin: 0; }
+
+  .note { font-size: .8125rem; padding: 10px 14px; border-radius: 0 4px 4px 0; margin-top: 4px; }
+  .note.pro  { background: #F1F8F2; border-left: 3px solid #4C9A5E; }
+  .note.con  { background: #FFF8E1; border-left: 3px solid #E6A700; }
+  .note.ref  { background: #F2F5FA; border-left: 3px solid #6B84B0; }
+  .note b { display: block; font-size: .6875rem; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 3px; }
+
+  /* --- matriz --- */
+  .matrix { background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 32px; }
+  .matrix > header { padding: 20px 24px; border-bottom: 1px solid var(--line); }
+  .matrix h2 { margin: 0; font-size: 1.125rem; }
+  .matrix h2 small { display: block; font-weight: 400; font-size: .8125rem; color: var(--muted); margin-top: 4px; }
+  .scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: .8125rem; min-width: 720px; }
+  th, td { padding: 11px 16px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th { font-size: .6875rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; }
+  tbody th { font-weight: 600; color: var(--muted); font-size: .75rem; width: 200px; }
+  tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+  td .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: 0; }
+
+  /* --- decisión pendiente --- */
+  .ask {
+    background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--ink);
+    border-radius: 0 10px 10px 0; padding: 22px 24px;
+  }
+  .ask h2 { margin: 0 0 10px; font-size: .9375rem; }
+  .ask p { margin: 0 0 10px; max-width: 78ch; }
+  .ask p:last-child { margin-bottom: 0; }
+
+  /* --- migas de vuelta a la portada --- */
+  .crumb {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: .8125rem; text-decoration: none; color: var(--muted);
+    margin-bottom: 22px; padding: 6px 13px 6px 11px;
+    border: 1px solid var(--line); border-radius: 999px; background: #fff;
+    transition: color .15s, border-color .15s;
+  }
+  .crumb:hover { color: var(--ink); border-color: #c9c9c9; }
+  .crumb span { transition: transform .15s; }
+  .crumb:hover span { transform: translateX(-3px); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="crumb" href="../index.html"><span>←</span> Portada</a>
+
+  <header class="top">
+    <p class="meta">Propuestas de estilo</p>
+    <h1>Cinco caminos para tu web</h1>
+    <p>Las cinco son la misma página, con las mismas secciones y el mismo texto.
+       Lo único que cambia es la personalidad: el color, la tipografía y la
+       forma. Está hecho así a propósito, para que la comparación sea justa. Si
+       una te gusta más, será por su estilo y no porque tenga mejores fotos o
+       más contenido.</p>
+    <p>No hace falta elegir una entera. Es igual de útil decir «me gusta el
+       color de esta con la letra de aquella», o señalar una sola sección que no
+       te encaja. Cuatro salen de los sitios que nos pasaste; la quinta explora
+       algo que esos sitios sí hacían y a nosotros se nos había escapado.</p>
+  </header>
+
+  <div class="method">
+    <h2>Cómo mirar esto</h2>
+    <ul>
+      <li><b>Fíjate en la sensación, no en el texto.</b> Los textos son de
+          relleno y las fotos son marcadores grises. Se escriben y se hacen
+          después. Lo que se decide ahora es el tono visual.</li>
+      <li><b>Cuatro llevan letra clásica y una lleva letra moderna.</b> A, B, C
+          y E usan tipografías con remate, esas que tienen pequeños trazos en
+          las puntas y transmiten oficio y confianza. D usa una letra sin
+          remate, más de tecnología y actualidad. Es la diferencia que antes
+          notas sin saber nombrarla.</li>
+      <li><b>Mira las esquinas.</b> A, B, C y D son redondeadas, que suena
+          cercano y amable. E es de esquina recta, que suena firme y de
+          revista. Es lo que más mueve la percepción entre «me va a cuidar» y
+          «sabe lo que hace», y por eso hay una propuesta de cada tipo.</li>
+      <li><b>Tu nombre es el logo.</b> No hay símbolo ni marca previa, así que
+          la tipografía carga con toda la identidad. De ahí que cada propuesta
+          se juegue tanto en esa elección.</li>
+      <li><b>Todos los textos se leen con comodidad.</b> También en móvil, con
+          el brillo alto, con vista cansada o para quien distingue mal ciertos
+          colores. Lo hemos comprobado texto por texto con una medición, no a
+          ojo, y siempre en el escenario más desfavorable de cada página. Donde
+          un color de tus referencias no llegaba, lo hemos corregido.</li>
+    </ul>
+    <p>Las miniaturas de abajo son las páginas de verdad, funcionando. Haz clic
+       en cualquiera para abrirla a pantalla completa.</p>
+  </div>
+
+  <div class="method">
+    <h2>Decisiones pensadas para que te escriban más</h2>
+    <p>Además del aspecto, la estructura está montada para convertir visitas en
+       primeras llamadas. Estas decisiones son iguales en las cinco propuestas,
+       así que no dependen de cuál elijas.</p>
+    <ul>
+      <li><b>La barra de arriba te acompaña al bajar.</b> El botón de reservar
+          está siempre a un clic, sin tener que volver arriba. Es la que más
+          peso tiene, porque el momento en que alguien decide escribirte no
+          suele ser al principio de la página, sino después de leer algo que le
+          ha resonado.</li>
+      <li><b>«Llamada gratuita de 15 minutos», no «Contacta».</b> Nombrar el
+          compromiso exacto y hacerlo pequeño baja mucho la barrera. La persona
+          sabe justo a qué dice sí.</li>
+      <li><b>El botón es siempre el mismo.</b> Mismo texto, mismo color, misma
+          forma en toda la página. Cuando el botón cambia de aspecto, la gente
+          duda de si lleva al mismo sitio.</li>
+      <li><b>Los honorarios van antes de las preguntas frecuentes.</b> El coste
+          es la primera objeción real en terapia privada en Nueva York.
+          Resolverla temprano evita que abandonen la página con la duda.</li>
+      <li><b>El vídeo de un minuto, arriba.</b> Elegir terapeuta es una
+          decisión de confianza personal, no de catálogo. Verte y oírte hace más
+          que cualquier párrafo.</li>
+      <li><b>Una sola llamada a la acción por sección.</b> Dos opciones que
+          compiten se convierten en ninguna.</li>
+    </ul>
+    <p>Con honestidad: esto son criterios de diseño con fundamento, no
+       resultados medidos en tu web. Cuando esté publicada y con analítica se
+       podrán comprobar de verdad, y ajustar lo que no funcione.</p>
+  </div>
+
+  <div id="variants"></div>
+
+  <div class="matrix">
+    <header>
+      <h2>Comparación lado a lado
+        <small>Lo que de verdad las diferencia, en una tabla.</small>
+      </h2>
+    </header>
+    <div class="scroll"><table id="matrix"></table></div>
+  </div>
+
+  <div class="ask">
+    <h2>Lo que más va a condicionar tu elección</h2>
+    <p><b>Las fotos importan más que la paleta.</b> El hallazgo principal al
+       analizar tus referencias es que en los dos sitios más vivos, Ostler y
+       Fresh Start, el color no viene de la decoración: viene de la fotografía.
+       Las caléndulas naranjas de uno y las piezas de colores del otro. El
+       diseño solo pone el lienzo.</p>
+    <p>Como habrá sesión profesional, las cinco propuestas están en igualdad de
+       condiciones. Aun así cada una le pide algo distinto a la cámara:
+       <b>A</b> quiere color y luz, <b>E</b> quiere buen encuadre y espacio
+       alrededor, <b>D</b> no necesita foto en absoluto, y <b>B</b> y <b>C</b>
+       se conforman con cualquier retrato decente. Si te gusta A o E, merece la
+       pena llevar esa referencia a la sesión.</p>
+    <p><b>Y una pregunta para ti.</b> ¿Cuánto peso quieres que tenga el lado más
+       desenfadado de tu trabajo, sobre todo en terapia de pareja? Es lo que
+       decidirá cuánto carácter y cuánto movimiento lleva la web. Ahora mismo
+       las propuestas están en un registro prudente: si tu consulta se
+       posiciona como cercana y con humor, hay bastante margen para subir el
+       tono, y conviene saberlo antes de cerrar la elección.</p>
+  </div>
+
+</div>
+
+<script>
+/* ---------------------------------------------------------------
+   Para tocar una variante: edita su objeto aquí.
+   La página se construye sola, igual que el índice de referencias.
+   --------------------------------------------------------------- */
+const VARIANTS = [
+  {
+    key: "A",
+    keyColor: "#F5853C",
+    name: "Cítrica",
+    file: "A-citrica.html",
+    thesis: "La más luminosa y con más energía. Es tu referencia favorita, pero quitándole el fondo marrón oscuro.",
+    colors: [
+      { n: "Base",      v: "#FDF8F0" },
+      { n: "Cielo",     v: "#A8D0E2" },
+      { n: "Savia",     v: "#C4DBC4" },
+      { n: "Cítrico",   v: "#E4E356" },
+      { n: "Naranja",   v: "#F5853C" },
+      { n: "Tinta",     v: "#1F3D2B" }
+    ],
+    type: [
+      { tag: "Titular", css: '"Instrument Serif", Georgia, serif', size: "1.75rem", txt: "Therapy in NYC" },
+      { tag: "Botones y menú", css: '"Oswald", sans-serif', size: ".9375rem", txt: "BOOK A CONSULT", extra: "letter-spacing:.08em;text-transform:uppercase" },
+      { tag: "Texto", css: '"Lato", sans-serif', size: ".875rem", txt: "Un espacio donde aparecer se hace fácil." }
+    ],
+    facts: [
+      ["Esquinas",   "Botones en forma de cápsula, muy redondos."],
+      ["Relieve",    "Ninguno. Los colores se apoyan planos."],
+      ["Detalle",    "Destellos dibujados a mano."],
+      ["Legibilidad","Cumple con margen"]
+    ],
+    ref:  "Ostler Therapy, el sitio de las caléndulas naranjas. De los cuatro que nos pasaste es el mejor construido, así que se conserva todo su lenguaje: los destellos dibujados, los botones de cápsula y los colores planos. El único cambio es el que pediste, quitarle el marrón muy oscuro del fondo y dejar la página luminosa.",
+    pro:  "La más fiel a lo que señalaste y la que menos se parece a las webs de otras terapeutas. Esa forma de cápsula tan marcada y la ausencia de relieves la hacen reconocible de un vistazo.",
+    con:  "Es la que más depende de que las fotos tengan color y luz. Sobre fondo claro, el amarillo y el naranja cargan solos con toda la energía, así que si las fotos salen apagadas esta propuesta se queda a medias. Con sesión profesional confirmada, eso deja de ser un problema."
+  },
+  {
+    key: "B",
+    keyColor: "#4453C4",
+    name: "Periwinkle",
+    file: "B-periwinkle.html",
+    thesis: "La más serena y la que más transmite solvencia, sin volverse apagada.",
+    colors: [
+      { n: "Base",       v: "#FCFAF6" },
+      { n: "Periwinkle", v: "#C3C7E8" },
+      { n: "Velo",       v: "#D9E6EC" },
+      { n: "Azul",       v: "#4453C4" },
+      { n: "Coral",      v: "#F5705A" },
+      { n: "Tinta",      v: "#1E2352" }
+    ],
+    type: [
+      { tag: "Titular", css: '"Fraunces", Georgia, serif', size: "1.75rem", txt: "Therapy in NYC", extra: 'font-variation-settings:"opsz" 120' },
+      { tag: "Botones y menú", css: '"Jost", sans-serif', size: ".9375rem", txt: "Book a consult", extra: "font-weight:500" },
+      { tag: "Texto", css: '"Lato", sans-serif', size: ".875rem", txt: "Un espacio donde aparecer se hace fácil." }
+    ],
+    facts: [
+      ["Esquinas",   "Redondeo intermedio, ni blando ni rígido."],
+      ["Relieve",    "Casi imperceptible, solo asienta las tarjetas."],
+      ["Detalle",    "Triple línea fina bajo el titular."],
+      ["Legibilidad","Cumple con margen"]
+    ],
+    ref:  "Fresh Start Parenting, pero por una puerta lateral. Al analizar ese sitio encontramos que tiene toda una familia de azules preparada en su configuración y que nunca llega a usarla en pantalla. Es la única propuesta que no has visto en ninguna referencia, así que es la exploratoria.",
+    pro:  "Es la que mejor resuelve la contradicción de tu encargo. Pediste transmitir autoridad profesional alta y a la vez resultar fresca y cercana, y el azul intenso es el único color que hace las dos cosas a la vez. La tipografía además se adapta: en el titular grande y en el texto pequeño no parece la misma letra estirada, sino dos versiones pensadas para cada tamaño.",
+    con:  "Es la más arriesgada, no por el diseño sino porque no nace de nada que tú ya hayas señalado como «esto me gusta». Puede resultar un poco más institucional que las otras, algo más de despacho y menos de consulta cálida."
+  },
+  {
+    key: "C",
+    keyColor: "#A85C33",
+    name: "Terracota",
+    file: "C-terracota.html",
+    thesis: "La más acogedora de las cinco, y también la más parecida a lo que ya hace el sector.",
+    colors: [
+      { n: "Base",      v: "#FDF7F1" },
+      { n: "Blush",     v: "#EFD3BE" },
+      { n: "Sage",      v: "#C9D8BF" },
+      { n: "Terracota", v: "#A85C33" },
+      { n: "Verde",     v: "#2F7D4C" },
+      { n: "Tinta",     v: "#24352A" }
+    ],
+    type: [
+      { tag: "Titular", css: '"Caudex", Georgia, serif', size: "1.75rem", txt: "Therapy in NYC" },
+      { tag: "Botones y menú", css: '"Jost", sans-serif', size: ".9375rem", txt: "Book a consult", extra: "font-weight:500" },
+      { tag: "Texto", css: '"Lato", sans-serif', size: ".875rem", txt: "Un espacio donde aparecer se hace fácil." }
+    ],
+    facts: [
+      ["Esquinas",   "Redondeo amplio y blando."],
+      ["Relieve",    "Sombra difusa y cálida, como myTherapyNYC."],
+      ["Detalle",    "Arco de sol sobre la fotografía."],
+      ["Legibilidad","Cumple con margen"]
+    ],
+    ref:  "Mezcla de tres de tus cuatro referencias: los verdes de Fresh Start y Manhattan Wellness, la temperatura del melocotón de myTherapyNYC, y una familia de tonos tierra que Fresh Start tiene preparada y no usa. La tipografía del titular es exactamente la del sitio de Fresh Start.",
+    pro:  "La que menos resistencia va a generar en quien te visite. Cálida, cercana y con los códigos que tu público ya asocia a un espacio de terapia, así que se entiende sin esfuerzo. Y aguanta igual de bien con fotos que sin ellas.",
+    con:  "Justo por eso es la más previsible. Los tonos tierra y el verde suave sobre crema son el acuerdo tácito del sector ahora mismo, así que si eliges esta, diferenciarte va a depender de la fotografía y del tono de los textos más que del color."
+  },
+  {
+    key: "D",
+    keyColor: "#1F2A2E",
+    name: "Cristal",
+    file: "D-cristal.html",
+    thesis: "La más actual. Paneles translúcidos, como de cristal, sobre un degradado de color.",
+    colors: [
+      { n: "Base",      v: "#FDF8F0" },
+      { n: "Melocotón", v: "#FFAF68" },
+      { n: "Cítrico",   v: "#E0DE55" },
+      { n: "Cielo",     v: "#7CC5E7" },
+      { n: "Coral",     v: "#FF937D" },
+      { n: "Tinta",     v: "#1F2A2E" }
+    ],
+    type: [
+      { tag: "Titular", css: '"Instrument Sans", system-ui, sans-serif', size: "1.75rem", txt: "Therapy in NYC", extra: "font-weight:600;letter-spacing:-.035em" },
+      { tag: "Botones y menú", css: '"Instrument Sans", sans-serif', size: ".9375rem", txt: "Book a consult", extra: "font-weight:500" },
+      { tag: "Texto", css: '"Inter", sans-serif', size: ".875rem", txt: "Un espacio donde aparecer se hace fácil." }
+    ],
+    facts: [
+      ["Esquinas",   "Redondeo moderado."],
+      ["Relieve",    "Sombra suave, que separa el cristal del fondo."],
+      ["Detalle",    "Franja de color de borde a borde."],
+      ["Legibilidad","Cumple con margen"]
+    ],
+    ref:  "Ninguna de tus cuatro referencias. Sale de tu petición directa de probar el efecto cristal, así que es la única que no se apoya en el análisis de los sitios que elegiste sino en una idea tuya.",
+    pro:  "La única que no necesita sesión de fotos: la franja de color hace ese trabajo por sí sola. También la más actual, y la que mejor encaja con lo que pediste de «un toque minimalista pero moderno».",
+    con:  "Tiene tensiones reales y conviene decirlas. Pediste calidez y cero frialdad, y el efecto cristal tira por naturaleza a frío y tecnológico. Se ha templado con un degradado cálido de melocotón y coral en vez del típico azul y violeta, pero sigue siendo la más fría de las cinco. También es la que más se apoya en la estética del momento: hoy se ve espectacular y muy de ahora, y ese es justo su atractivo. A cambio, es la que más pide revisarse cada cierto tiempo para seguir sonando actual, mientras las otras aguantan quietas. Es una decisión de posicionamiento, no un defecto."
+  },
+  {
+    key: "E",
+    keyColor: "#284132",
+    name: "Editorial",
+    file: "E-editorial.html",
+    thesis: "La única de esquina recta. Firme y de revista, con los titulares en minúscula para que no resulte severa.",
+    colors: [
+      { n: "Marfil",   v: "#FEFAF6" },
+      { n: "Crema",    v: "#F9F4EC" },
+      { n: "Arena",    v: "#F2EADD" },
+      { n: "Bosque",   v: "#284132" },
+      { n: "Verde muy claro", v: "#E9EDEA" },
+      { n: "Tinta",    v: "#171515" }
+    ],
+    type: [
+      { tag: "Titular", css: '"Playfair Display", Georgia, serif', size: "1.75rem", txt: "therapy in nyc", extra: "font-weight:700;text-transform:lowercase" },
+      { tag: "Cursiva de apoyo", css: '"Newsreader", Georgia, serif', size: "1.5rem", txt: "a good fit", extra: "font-style:italic" },
+      { tag: "Texto", css: '"Noto Sans", sans-serif', size: ".875rem", txt: "Un espacio donde aparecer se hace fácil." }
+    ],
+    facts: [
+      ["Esquinas",   "Rectas, sin redondeo. Es su razón de ser."],
+      ["Relieve",    "Uno solo en toda la página, en el vídeo."],
+      ["Detalle",    "Doble línea fina como separador."],
+      ["Legibilidad","La más alta de las cinco"]
+    ],
+    ref:  "Manhattan Wellness. Al revisar tus cuatro referencias nos dimos cuenta de que dos de ellas usan botones de esquina recta, y sin embargo las cuatro primeras propuestas nos habían salido todas redondeadas. Faltaba darte la opción recta. Se basa en Manhattan y no en Fresh Start porque el botón de Fresh Start apenas se distingue como botón, y habríamos copiado ese defecto.",
+    pro:  "La que más autoridad transmite, y la que menos se parece a una web de plantilla. Usa un solo color en toda la página, verde bosque sobre cremas cálidos, y esa contención es justo lo que da el aire de revista. Los titulares van en minúscula, que es el truco del sitio original para que la esquina recta no resulte seria de más. Como efecto secundario es la que mejor se lee de las cinco, con bastante diferencia.",
+    con:  "Es la más exigente con la fotografía, no por el color sino por el encuadre: un diseño de revista pide fotos con aire alrededor y buena composición, y deja en evidencia una foto mal recortada. También es la que más se aleja del «divertido y cercano»: gana en solvencia lo que pierde en calidez inmediata. Y el verde oscuro aparece a propósito una sola vez, en la franja del final; si te apetece verlo más presente, es fácil de subir."
+  }
+];
+
+/* --- tarjetas --- */
+const esc = s => String(s).replace(/[&<>]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;" }[c]));
+
+document.getElementById("variants").innerHTML = VARIANTS.map(v => `
+  <section class="v">
+    <header>
+      <h2>
+        <span class="key" style="background:${v.keyColor}">${v.key}</span>${esc(v.name)}
+        <small>${esc(v.thesis)}</small>
+      </h2>
+      <p class="links"><a href="${v.file}">Abrir a tamaño completo →</a></p>
+    </header>
+
+    <div class="thumb">
+      <iframe src="${v.file}" loading="lazy" tabindex="-1"
+              title="Vista previa de la variante ${v.key}, ${esc(v.name)}"></iframe>
+      <a class="veil" href="${v.file}"
+         aria-label="Abrir la variante ${v.key}, ${esc(v.name)}, a tamaño completo"></a>
+    </div>
+
+    <div class="body">
+      <div>
+        <h3 class="sub">Paleta</h3>
+        <div class="swatches">
+          ${v.colors.map(c => `
+            <div class="sw">
+              <div class="chip" style="background:${c.v}"></div>
+              <div class="lbl"><b>${esc(c.n)}</b><code>${c.v}</code></div>
+            </div>`).join("")}
+        </div>
+
+        <h3 class="sub" style="margin-top:22px">Forma y verificación</h3>
+        <dl class="facts">
+          ${v.facts.map(([k, val]) => `<dt>${esc(k)}</dt><dd>${esc(val)}</dd>`).join("")}
+        </dl>
+      </div>
+
+      <div>
+        <h3 class="sub">Tipografía</h3>
+        ${v.type.map(t => `
+          <div class="spec" style="border-left-color:${v.keyColor}">
+            <span class="tag">${esc(t.tag)}</span>
+            <div style="font-family:${t.css};font-size:${t.size};${t.extra || ""}">${esc(t.txt)}</div>
+          </div>`).join("")}
+
+        <div class="note ref"><b>De dónde sale</b>${esc(v.ref)}</div>
+        <div class="note pro"><b>Su punto fuerte</b>${esc(v.pro)}</div>
+        <div class="note con"><b>Lo que hay que saber</b>${esc(v.con)}</div>
+      </div>
+    </div>
+  </section>
+`).join("");
+
+/* --- matriz --- */
+const ROWS = [
+  ["En qué se basa",       ["Ostler Therapy", "Fresh Start, sus azules sin usar", "Mezcla de tres de tus sitios", "Tu idea del efecto cristal", "Manhattan Wellness"]],
+  ["Sensación en una palabra", ["Luminosa", "Serena", "Acogedora", "Actual", "Firme"]],
+  ["Tipo de letra",        ["Clásica, con remate", "Clásica, con remate", "Clásica, con remate", "Moderna, sin remate", "Clásica, con remate"]],
+  ["Esquinas",             ["Cápsula, muy redonda", "Redondeo intermedio", "Redondeo amplio", "Redondeo moderado", "Rectas"]],
+  ["Relieve",              ["Ninguno", "Casi imperceptible", "Difuso y cálido", "Suave, necesario", "Uno solo en la página"]],
+  ["Temperatura",          ["Cálida con toque frío", "Fría con toque cálido", "La más cálida", "La más fría", "Cálida y contenida"]],
+  ["Cuántos colores usa",  ["Cinco", "Cinco", "Cinco", "Cuatro en degradado", "Uno solo"]],
+  ["Qué le pides a la foto", ["Color y luz, bastante", "Nada especial", "Nada especial", "No la necesita", "Buen encuadre y aire"]],
+  ["A quién le habla mejor", ["Quien busca energía", "Quien busca solvencia", "Quien busca refugio", "Quien busca algo actual", "Quien busca criterio"]],
+  ["Qué tener en cuenta",  ["Pierde fuerza sin fotos vivas", "No la has visto en ninguna referencia", "La más parecida al resto del sector", "Pide revisarse cada cierto tiempo", "La menos «divertida» de las cinco"]],
+  ["Legibilidad",          ["Cumple con margen", "Cumple con margen", "Cumple con margen", "Cumple con margen", "La más alta"]],
+  ["Tipografías gratuitas",["Sí, todas", "Sí, todas", "Sí, todas", "Sí, todas", "Sí, todas"]]
+];
+
+const KEYS = VARIANTS.map(v => v.key);
+const COLORS = VARIANTS.map(v => v.keyColor);
+
+document.getElementById("matrix").innerHTML = `
+  <thead>
+    <tr>
+      <th></th>
+      ${VARIANTS.map((v, i) => `
+        <th><span class="dot" style="background:${COLORS[i]}"></span>${v.key} · ${esc(v.name)}</th>`).join("")}
+    </tr>
+  </thead>
+  <tbody>
+    ${ROWS.map(([label, vals]) => `
+      <tr>
+        <th>${esc(label)}</th>
+        ${vals.map(x => `<td>${esc(x)}</td>`).join("")}
+      </tr>`).join("")}
+  </tbody>
+`;
+</script>
+</body>
+</html>

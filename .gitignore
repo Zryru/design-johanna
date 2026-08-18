@@ -1,0 +1,9 @@
+# Basura de macOS
+.DS_Store
+._*
+
+# NO PUBLICAR: notas internas de trabajo.
+# docs/plan.md tiene el encargo en bruto y docs/plan-accion.md tiene
+# valoraciones francas de cada propuesta y del cliente. Es material para
+# nosotros, no para que lo encuentre Johanna navegando.
+docs/

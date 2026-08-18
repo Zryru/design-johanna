@@ -1,0 +1,178 @@
+/* =============================================================
+   Ostler Therapy — design tokens
+   Fuente: https://www.ostlertherapy.com/
+   Método: reference/_extract.js sobre el DOM real (viewport 1440)
+   Fecha: 2026-08-18
+   Stack: Squarespace (tipografía fluida, de ahí los px decimales)
+
+   ESTE ARCHIVO TIENE DOS BLOQUES:
+     1. [data-palette="source"]  → lo que hay realmente en el sitio
+     2. :root                    → adaptación luminosa para Johanna
+                                   (encargo: mismo nervio, sin oscuros)
+   ============================================================= */
+
+
+/* =============================================================
+   1. PALETA ORIGINAL — tal cual está medida
+   ============================================================= */
+
+[data-palette="source"] {
+  /* El chocolate casi negro domina: 10 de 22 fondos y 216 usos de texto.
+     Es la base estructural del sitio y lo que NO queremos replicar. */
+  --os-chocolate:    #310902;  /* rgb(49, 9, 2)     — fondo dominante */
+  --os-chocolate-50: rgba(49, 9, 2, 0.5);           /* velo sobre foto */
+
+  --os-sky:          #95BCD0;  /* rgb(149, 188, 208) — azul polvo, 2º fondo */
+  --os-citron:       #E1DF66;  /* rgb(225, 223, 102) — EL acento, pill CTA */
+  --os-cream:        #F3ECE3;  /* rgb(243, 236, 227) — fondo claro y texto */
+  --os-orange:       #E07338;  /* rgb(224, 115, 56)  — acento secundario */
+
+  /* Ritmo real de secciones: sky → chocolate → sky → chocolate →
+     cream → sky → chocolate → cream.  Bloques planos de color, muy
+     contrastados, sin degradados ni transiciones suaves.  */
+}
+
+
+/* =============================================================
+   2. ADAPTACIÓN LUMINOSA — propuesta para Johanna Bellorin
+   -------------------------------------------------------------
+   Qué se conserva del original:
+     · el pill completo (radius 300px) en todos los CTA
+     · cero sombras, absolutamente ninguna
+     · color blocking plano, sin degradados
+     · Instrument Serif con énfasis en cursiva
+     · fotografía muy saturada, de borde a borde
+     · iconos de línea + destellos dibujados
+
+   Qué cambia:
+     · el chocolate #310902 desaparece como base
+     · el azul cielo sube a color estructural
+     · se añade un verde savia como segundo estructural
+     · los acentos se saturan más, no menos
+   ============================================================= */
+
+:root {
+  /* ---------- ESTRUCTURALES (fondos de sección) ---------- */
+  --jb-cream:        #FDF8F0;  /* base cálida, más clara que el original */
+  --jb-sky:          #A8D0E2;  /* azul cielo, +luminosidad sobre #95BCD0 */
+  --jb-sky-soft:     #DCEEF5;  /* velo del mismo azul para bloques suaves */
+  --jb-sage:         #C4DBC4;  /* verde savia, sustituye al chocolate */
+  --jb-white:        #FFFFFF;
+
+  /* ---------- ACENTOS VIVOS ----------
+     Aquí es donde vive la energía. Saturados, no apagados. */
+  --jb-citron:       #E4E356;  /* cítrico del original, +saturación */
+  --jb-citron-deep:  #C9C736;  /* variante para texto sobre claro */
+  --jb-orange:       #F07A32;  /* naranja maravilla, del propio hero */
+  --jb-coral:        #F2593F;  /* rojo-coral de las flores del hero */
+
+  /* ---------- TINTA ----------
+     Verde muy oscuro en vez de chocolate: mantiene contraste AA
+     sin el peso fúnebre del #310902. */
+  --jb-ink:          #1F3D2B;
+  --jb-ink-muted:    #4A6152;
+
+  /* ---------- SEMÁNTICOS ---------- */
+  --jb-bg:              var(--jb-cream);
+  --jb-bg-alt:          var(--jb-sky-soft);
+  --jb-bg-block:        var(--jb-sky);
+  --jb-bg-block-2:      var(--jb-sage);
+
+  --jb-text:            var(--jb-ink);
+  --jb-text-muted:      var(--jb-ink-muted);
+  --jb-text-heading:    var(--jb-ink);
+
+  /* CTA primario: cítrico con tinta oscura.
+     Contraste ~9:1, muy por encima de AA. El original usaba
+     cítrico sobre azul cielo (#E1DF66 / #95BCD0) que se queda
+     en 1.4:1 — ilegible. Corregido aquí. */
+  --jb-btn-bg:          var(--jb-citron);
+  --jb-btn-fg:          var(--jb-ink);
+  --jb-btn-bg-hover:    var(--jb-citron-deep);
+
+  /* CTA secundario: naranja con blanco */
+  --jb-btn2-bg:         var(--jb-orange);
+  --jb-btn2-fg:         var(--jb-white);
+
+  /* ---------- TIPOGRAFÍAS ----------
+     display : Instrument Serif — la del original. Google Fonts, libre.
+               Su gracia está en la CURSIVA usada como énfasis dentro
+               de un titular recto ("relational therapy for *real*
+               connection"). Ese contraste es la firma.
+     ui      : Oswald — condensada, uppercase, solo para CTA y eyebrows.
+               Google Fonts, libre.
+     body    : Lato — Google Fonts, libre. Tracking ligeramente NEGATIVO
+               (-0.01em), poco habitual y parte del carácter.
+     logo    : el original usa un display groovy/retro servido como
+               imagen, no como webfont. Alternativas libres con ese aire:
+               Rubik Puddles · Bagel Fat One · Climate Crisis.
+  */
+  --jb-font-display: "Instrument Serif", Georgia, serif;
+  --jb-font-ui:      "Oswald", system-ui, sans-serif;
+  --jb-font-body:    "Lato", system-ui, -apple-system, sans-serif;
+
+  /* ---------- ESCALA TIPOGRÁFICA ----------
+     Medida directa (Squarespace fluido, sin canvas escalado).
+     El tracking negativo en cuerpo y titulares es deliberado.
+  */
+  --jb-fs-h1:        clamp(2.5rem, 5.5vw, 4rem);
+  --jb-lh-h1:        1.05;
+  --jb-ls-h1:        -0.02em;
+
+  --jb-fs-h2:        clamp(1.75rem, 3.5vw, 2.75rem);
+  --jb-lh-h2:        1.1;
+  --jb-ls-h2:        -0.015em;
+
+  --jb-fs-lead:      1.415rem;   /* 22.64px original / lh 1.3 */
+  --jb-lh-lead:      1.3;
+  --jb-ls-lead:      -0.01em;
+
+  --jb-fs-body:      1.0625rem;
+  --jb-lh-body:      1.6;
+  --jb-ls-body:      -0.01em;
+
+  --jb-fs-btn:       0.875rem;   /* 14px / uppercase / ls .04em */
+  --jb-ls-btn:       0.04em;
+
+  --jb-fs-eyebrow:   0.75rem;
+  --jb-ls-eyebrow:   0.12em;
+
+  --jb-fw-body:      400;
+  --jb-fw-bold:      700;
+
+  /* ---------- FORMA ----------
+     El pill total es la decisión más reconocible del original.
+     10 de 13 radios medidos son 300px. Se conserva íntegro. */
+  --jb-radius-pill:  300px;      /* TODOS los botones */
+  --jb-radius-card:  30px;       /* tarjetas e imágenes */
+  --jb-radius-full:  50%;
+
+  /* ---------- SOMBRAS ----------
+     El original NO tiene ni una sola sombra. Cero. La profundidad
+     se consigue con bloques de color plano. Se respeta. */
+  --jb-shadow: none;
+
+  /* ---------- BOTONES (medidas reales del original) ---------- */
+  --jb-btn-padding:      14px 18px;   /* compacto, caja 150x49 */
+  --jb-btn-padding-wide: 20px 18px;   /* ancho completo, caja 664x69 */
+
+  /* ---------- ESPACIADO ---------- */
+  --jb-space-1: 0.25rem;
+  --jb-space-2: 0.5rem;
+  --jb-space-3: 0.75rem;
+  --jb-space-4: 1rem;
+  --jb-space-5: 1.5rem;
+  --jb-space-6: 2.25rem;
+  --jb-space-7: 3.5rem;
+  --jb-space-8: 5rem;
+  --jb-space-9: 7.5rem;
+
+  --jb-container: 1200px;
+}
+
+
+/* =============================================================
+   RITMO DE SECCIONES PROPUESTO
+   cream → sky → cream → sage → FOTO de borde a borde → sky-soft → cream
+   Ningún bloque oscuro. El contraste lo dan los acentos y la foto.
+   ============================================================= */

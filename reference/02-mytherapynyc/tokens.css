@@ -1,0 +1,128 @@
+/* =============================================================
+   myTherapyNYC — design tokens
+   Fuente: https://mytherapynyc.com/
+   Método: reference/_extract.js sobre el DOM real (viewport 1440)
+   Fecha: 2026-08-18
+   Stack detectado: WordPress + Elementor (sin canvas escalado)
+   ============================================================= */
+
+:root {
+  /* ---------- PALETA ----------
+     Ordenada por frecuencia real de uso en elementos visibles.
+     El esquema es teal + melocotón: frío profesional contra
+     cálido acogedor. Es el eje de toda la identidad.
+  */
+
+  /* Primario: azul petróleo / teal apagado. Titulares, CTA text, iconos */
+  --mt-teal:            #466774;  /* rgb(70, 103, 116) */
+  --mt-teal-85:         rgba(70, 103, 116, 0.85);
+  --mt-teal-soft:       #7B8C93;  /* rgb(123, 140, 147) variante clara */
+
+  /* Acento: melocotón / albaricoque. Es EL color de marca, el que recuerdas */
+  --mt-peach:           #F2BFA1;  /* rgb(242, 191, 161) — botón primario */
+  --mt-peach-bg:        #FFE3D2;  /* rgb(255, 227, 210) — fondo de sección */
+  --mt-cream:           #FDF2EC;  /* rgb(253, 242, 236) — fondo alterno */
+  --mt-cream-alt:       #FDF3ED;  /* rgb(253, 243, 237) — texto sobre teal */
+
+  /* Neutro cálido de apoyo: malva grisáceo */
+  --mt-mauve:           #998585;  /* rgb(153, 133, 133) */
+  --mt-sand-22:         rgba(217, 181, 142, 0.22);  /* velo arena sobre imagen */
+
+  /* Tinta */
+  --mt-ink:             #28303D;  /* rgb(40, 48, 61) — cuerpo, el más usado */
+  --mt-ink-muted:       #54595F;  /* rgb(84, 89, 95) */
+  --mt-ink-subtle:      #69727D;  /* rgb(105, 114, 125) */
+
+  --mt-white:           #FFFFFF;
+  --mt-black:           #020101;  /* rgb(2, 1, 1) — casi negro, no puro */
+  --mt-hairline:        #EDEDED;
+
+  /* ---------- SEMÁNTICOS ---------- */
+  --mt-bg:              var(--mt-white);
+  --mt-bg-warm:         var(--mt-peach-bg);
+  --mt-bg-cream:        var(--mt-cream);
+  --mt-bg-invert:       var(--mt-teal);
+
+  --mt-text:            var(--mt-ink);
+  --mt-text-heading:    var(--mt-teal);
+  --mt-text-on-invert:  var(--mt-white);
+  --mt-accent:          var(--mt-peach);
+
+  /* ---------- TIPOGRAFÍAS ----------
+     display : "Abhaya Libre" — serif humanista. Se usa SIEMPRE con
+               tracking muy abierto (3-4.5px), que es su firma visual.
+               Google Fonts, libre. Pesos 400/500/600/700.
+     ui      : Montserrat — CTA, nav, eyebrows. Google Fonts, libre.
+     cards   : "Roxborough" — serif de pago (CDN de Elementor).
+               Sustituto libre sugerido: "Gilda Display" o "Cormorant".
+     body    : hereda la pila de sistema en buena parte del contenido,
+               lo que abarata el rendimiento pero rompe consistencia.
+  */
+  --mt-font-display: "Abhaya Libre", Georgia, serif;
+  --mt-font-ui:      "Montserrat", system-ui, -apple-system, sans-serif;
+  --mt-font-cards:   "Gilda Display", Georgia, serif;   /* sust. de Roxborough */
+  --mt-font-body:    system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* ---------- ESCALA TIPOGRÁFICA ----------
+     Medida directa, sin escalado de canvas. El tracking abierto en
+     los display es tan característico como el propio tamaño.
+  */
+  --mt-fs-h1:        2.5rem;    /* 40px / lh 68px / Montserrat 700 */
+  --mt-lh-h1:        1.7;
+  --mt-fs-h2:        2.1875rem; /* 35px / lh 35px / tracking 4px */
+  --mt-lh-h2:        1;
+  --mt-ls-h2:        0.11em;
+  --mt-fs-h3:        1.875rem;  /* 30px / lh 30px / tracking 3px */
+  --mt-ls-h3:        0.1em;
+  --mt-fs-card:      1.5625rem; /* 25px / lh 32.5px */
+  --mt-lh-card:      1.3;
+  --mt-fs-eyebrow:   1.25rem;   /* 20px / tracking 5px — muy abierto */
+  --mt-ls-eyebrow:   0.25em;
+  --mt-fs-body:      1rem;      /* 16px / lh 27.2px */
+  --mt-lh-body:      1.7;
+  --mt-fs-nav:       0.9375rem; /* 15px / Montserrat 200-300, muy fino */
+  --mt-fs-btn:       0.9375rem; /* 15px / tracking 2px / capitalize */
+  --mt-ls-btn:       0.13em;
+
+  --mt-fw-thin:      200;       /* nav: Montserrat 200 */
+  --mt-fw-body:      400;
+  --mt-fw-ui:        500;       /* peso dominante en CTA */
+  --mt-fw-bold:      700;
+
+  /* ---------- FORMA ----------
+     Aquí está el contraste fuerte con Manhattan Wellness:
+     todo es pill y muy redondeado. Nada de esquinas rectas.
+  */
+  --mt-radius-pill:  30px;      /* TODOS los botones */
+  --mt-radius-card:  50px;      /* tarjetas e imágenes, el más frecuente */
+  --mt-radius-lg:    40px;
+  --mt-radius-full:  50%;       /* avatares */
+  --mt-radius-blob:  0 80px 0 0;/* esquina única, recurso decorativo */
+
+  --mt-border-width: 1px;       /* botón outline sobre imagen */
+
+  /* ---------- SOMBRAS ----------
+     Muy sutiles y difusas, casi imperceptibles. Nunca marcadas.
+  */
+  --mt-shadow-soft:  0 0 10px rgba(0, 0, 0, 0.5);
+  --mt-shadow-glow:  0 0 35px -100px rgba(0, 0, 0, 0.5);
+
+  /* ---------- ESPACIADO (del tema base) ---------- */
+  --mt-space-unit:   20px;
+  --mt-space-h:      25px;
+  --mt-space-v:      30px;
+
+  /* ---------- BOTONES (medidas reales) ----------
+     Primario : fondo melocotón + texto teal. Contraste suave,
+                deliberadamente poco agresivo.
+     Outline  : transparente + borde blanco 1px, sobre foto.
+  */
+  --mt-btn-padding:        15px 20px;   /* primario, caja 149x49 */
+  --mt-btn-padding-ghost:  12px 24px;   /* outline, caja 156x56 */
+}
+
+/* -------------------------------------------------------------
+   RITMO DE SECCIONES (orden real del documento)
+   peach-bg → white → peach-bg → teal → cream → teal
+   El teal aparece como banda de corte y cierra el pie.
+   ------------------------------------------------------------- */

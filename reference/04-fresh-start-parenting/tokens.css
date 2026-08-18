@@ -1,0 +1,133 @@
+/* =============================================================
+   Fresh Start Parenting — design tokens
+   Fuente: https://www.freshstartparenting.com/
+   Método: reference/_extract.js sobre el DOM real (viewport 1440)
+   Fecha: 2026-08-18
+   Stack: Wix Website Builder
+   Contexto: terapia infantil en Raleigh, NC (no NYC)
+
+   VENTAJA DE ESTE SITIO: Wix expone la paleta COMPLETA del tema en
+   custom properties, incluidos los colores que nunca llegan a usarse.
+   Se documentan todos porque las familias sin usar son material útil.
+
+   ADVERTENCIA: es el sitio más flojo de ejecución de los cuatro.
+   Ver notes.md para la lista de problemas. Se extrae la paleta y la
+   idea, NO los patrones de componente.
+   ============================================================= */
+
+
+/* =============================================================
+   1. PALETA COMPLETA DEL TEMA WIX
+   Las cuatro familias vienen definidas; solo la verde se usa.
+   ============================================================= */
+
+[data-palette="source"] {
+  /* --- Familia VERDE (la única realmente en uso) --- */
+  --fs-sage-pale:     #C9D8BF;  /* color_21 — fondo de sección, al 80% */
+  --fs-sage:          #A9C497;  /* color_22 */
+  --fs-sage-mid:      #86BA9D;  /* color_16 */
+  --fs-green:         #419C68;  /* color_17 */
+  --fs-green-leaf:    #649446;  /* color_23 */
+  --fs-green-action:  #176338;  /* color_18 — color de acción, nav activo */
+  --fs-green-deep:    #1D3B2A;  /* color_19 — títulos y bloque de pie */
+  --fs-green-olive:   #44632F;  /* color_24 */
+  --fs-green-dark:    #2E4222;  /* color_25 */
+  --fs-green-black:   #151F19;  /* color_20 */
+
+  /* --- Familia CÁLIDA / TERRACOTA (definida, sin usar) ---
+     Material aprovechable: da el contrapunto cálido que al sitio
+     le falta por completo. */
+  --fs-blush:         #DDC1B2;  /* color_26 */
+  --fs-terracotta:    #BD8364;  /* color_27 */
+  --fs-brown:         #783B1A;  /* color_28 */
+  --fs-brown-deep:    #572B13;  /* color_29 */
+  --fs-brown-black:   #3C1D0D;  /* color_30 */
+
+  /* --- Familia PERIWINKLE / AZUL (definida, sin usar) ---
+     La más interesante para un registro «vivo». */
+  --fs-periwinkle:    #B6BADB;  /* color_31 */
+  --fs-violet:        #6972B5;  /* color_32 */
+  --fs-blue:          #3946A8;  /* color_33 — saturado, con nervio */
+  --fs-blue-deep:     #252D6E;  /* color_34 */
+  --fs-blue-black:    #131737;  /* color_35 */
+
+  /* --- Neutros --- */
+  --fs-white:         #FFFFFF;
+  --fs-gray-100:      #E8E6E6;  /* color_12 */
+  --fs-gray-400:      #A3A3A3;  /* color_39 */
+  --fs-gray-600:      #575757;  /* color_14 — texto secundario */
+  --fs-black:         #000000;  /* color_15 — texto primario ⚠ negro puro */
+
+  /* --- Escala tipográfica del tema (font_0 … font_10) ---
+     Ojo: dos de las cuatro familias declaradas NUNCA se cargan.
+       caudex              → SÍ carga (serif, display)
+       brandon-grot-light  → SÍ carga (sans, cuerpo) — de pago
+       belinda (script)    → NO carga, font_7 cae a fallback
+       din-next-light      → NO carga, font_1 y font_10 caen a fallback
+  */
+  --fs-font-display:  caudex, serif;              /* h1 42px, h2 34px, h4 24px */
+  --fs-font-body:     "brandon-grot-w01-light", sans-serif;  /* 15-24px */
+  --fs-font-script:   belinda, script;            /* 27px — nunca carga */
+
+  --fs-fs-h1:   42px;  /* lh 1.4 */
+  --fs-fs-h2:   34px;
+  --fs-fs-h3:   24px;  /* sans */
+  --fs-fs-h4:   24px;  /* serif */
+  --fs-fs-h5:   20px;
+  --fs-fs-h6:   18px;
+  --fs-fs-body: 18px;
+  --fs-fs-sm:   15px;
+  --fs-fs-xs:   12px;
+  --fs-lh-all:  1.4;   /* 1.4em en TODA la escala, sin variación */
+
+  /* --- Forma ---
+     No hay ni un solo rectángulo redondeado. Solo círculos (50%)
+     para avatares. Botones a radius 0 con borde de 1px. */
+  --fs-radius-circle: 50%;
+  --fs-radius-box:    0;
+  --fs-shadow:        none;   /* ninguna sombra en toda la página */
+
+  --fs-site-width:    980px;  /* ⚠ estrecho, se nota anticuado */
+}
+
+
+/* =============================================================
+   2. LECTURA APROVECHABLE
+   -------------------------------------------------------------
+   Qué merece la pena de aquí:
+
+   · La familia verde completa, de #C9D8BF a #151F19. Es una escala
+     coherente de 10 pasos, mejor construida que la del sitio 01.
+   · Las familias terracota y periwinkle SIN USAR: son justo el
+     contrapunto cálido y el acento vivo que el sitio desperdicia.
+   · La combinación verde + periwinkle + terracota es una tríada
+     con más energía que cualquier cosa que el sitio muestra.
+
+   Qué NO copiar:
+   · El CTA (rectángulo de 1px, radius 0) es el más débil de las
+     cuatro referencias. Apenas se lee como botón.
+   · El negro puro #000 como color de cuerpo.
+   · line-height 1.4 uniforme en toda la escala: los titulares
+     grandes necesitan menos, el cuerpo más.
+   · El ancho de 980px.
+   ============================================================= */
+
+:root {
+  /* Tríada derivada, subiendo saturación (encargo: brillante y vivo) */
+  --jb4-sage-pale:   #D6E5CC;   /* base fresca, +luz sobre #C9D8BF */
+  --jb4-green:       #3E9E63;   /* verde vivo, de la familia original */
+  --jb4-green-ink:   #1D3B2A;   /* tinta, se conserva tal cual */
+
+  --jb4-periwinkle:  #C3C7E8;   /* velo suave */
+  --jb4-blue:        #4453C4;   /* acento saturado, sube desde #3946A8 */
+
+  --jb4-blush:       #F0D6C6;   /* cálido claro */
+  --jb4-terracotta:  #D18A63;   /* acento cálido, sube desde #BD8364 */
+
+  /* Display: Caudex es libre en Google Fonts, se puede usar.
+     Cuerpo: Brandon Grotesque es de pago (licencia Wix).
+     Sustitutos libres con ese aire geométrico y ligero:
+       Jost 300 · Poppins 300 · Questrial */
+  --jb4-font-display: "Caudex", Georgia, serif;
+  --jb4-font-body:    "Jost", system-ui, sans-serif;
+}

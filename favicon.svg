@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Neutro a propósito: la variante aún no está elegida, así que el icono
+       no adelanta ninguna paleta. Se cambia cuando haya decisión. -->
+  <rect width="32" height="32" fill="#1a1a1a"/>
+  <text x="16" y="22" text-anchor="middle" fill="#ffffff"
+        font-family="Georgia, serif" font-size="15">jb</text>
+</svg>

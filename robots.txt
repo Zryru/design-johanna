@@ -1,0 +1,6 @@
+# Previsualización privada de diseño, no es el sitio público.
+# Las páginas llevan además <meta name="robots" content="noindex, nofollow">,
+# que es lo que de verdad impide la indexación: este archivo solo evita el
+# rastreo, y una URL puede indexarse sin rastrearse si alguien la enlaza.
+User-agent: *
+Disallow: /

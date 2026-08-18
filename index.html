@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Johanna Bellorin, LCSW — Diseño del sitio web</title>
+<meta name="description" content="Propuestas de estilo visual y material de referencia para el sitio de Johanna Bellorin, LCSW.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  :root {
+    --ui: "Montserrat", system-ui, sans-serif;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e3e3e3;
+    --page: #f6f6f4;
+  }
+  body {
+    margin: 0; background: var(--page); color: var(--ink);
+    font-family: var(--ui); font-size: 15px; line-height: 1.6;
+  }
+  .wrap { max-width: 1080px; margin-inline: auto; padding: 72px 24px 96px; }
+  a { color: inherit; }
+
+  header.top { margin-bottom: 44px; max-width: 70ch; }
+  .meta {
+    font-size: .75rem; color: var(--muted); text-transform: uppercase;
+    letter-spacing: .1em; margin-bottom: 10px;
+  }
+  header.top h1 {
+    font-size: clamp(1.75rem, 3.4vw, 2.375rem); margin: 0 0 14px;
+    letter-spacing: -0.015em; line-height: 1.15;
+  }
+  header.top p { margin: 0 0 12px; color: #3d3d3d; }
+  header.top p:last-child { margin-bottom: 0; }
+
+  /* ---------- las dos puertas ---------- */
+  .doors { display: grid; gap: 20px; margin-bottom: 44px; }
+  @media (min-width: 860px) { .doors { grid-template-columns: 1.15fr 1fr; } }
+
+  .door {
+    display: flex; flex-direction: column;
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 28px 28px 24px; text-decoration: none;
+    transition: border-color .15s, transform .15s, box-shadow .15s;
+  }
+  .door:hover {
+    border-color: #c9c9c9; transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.05);
+  }
+  .door .step {
+    font-size: .6875rem; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--muted); font-weight: 600; margin-bottom: 12px;
+  }
+  .door h2 { margin: 0 0 10px; font-size: 1.25rem; letter-spacing: -0.01em; }
+  .door p { margin: 0 0 18px; color: #3d3d3d; }
+
+  /* franja de color: adelanta las cuatro paletas sin abrir la página */
+  .palette { display: flex; gap: 6px; margin-bottom: 18px; }
+  .palette .set {
+    display: flex; flex: 1; height: 34px; border-radius: 6px; overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .palette .set i { flex: 1; }
+
+  .door ul { margin: 0 0 18px; padding-left: 20px; color: #3d3d3d; }
+  .door li { margin-bottom: 5px; }
+  .door li:last-child { margin-bottom: 0; }
+
+  .door .go {
+    margin-top: auto; font-size: .8125rem; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .door .go span { transition: transform .15s; }
+  .door:hover .go span { transform: translateX(3px); }
+
+  /* ---------- nota ---------- */
+  .note {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 24px 28px;
+  }
+  .note h2 { margin: 0 0 12px; font-size: 1rem; }
+  .note p { margin: 0 0 12px; max-width: 76ch; color: #3d3d3d; }
+  .note p:last-child { margin-bottom: 0; }
+  .note ul { margin: 0 0 12px; padding-left: 20px; max-width: 76ch; color: #3d3d3d; }
+  .note li { margin-bottom: 6px; }
+
+  footer.foot {
+    margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line);
+    font-size: .8125rem; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <p class="meta">Johanna Bellorin, LCSW · Nueva York</p>
+    <h1>Cómo se va a ver tu sitio: cinco caminos posibles</h1>
+    <p>Antes de construir nada hemos preparado cinco propuestas de estilo
+       completas. Las cinco tienen la misma estructura y el mismo contenido, así
+       que lo único que cambia entre ellas es la personalidad: el color, la
+       tipografía y la forma. La idea es que puedas compararlas sin que te
+       distraiga nada más.</p>
+    <p>No hace falta que elijas una entera. Es igual de útil decir «me gusta el
+       color de esta con la tipografía de aquella».</p>
+  </header>
+
+  <div class="doors">
+
+    <a class="door" href="mockups/index.html">
+      <p class="step">Empieza por aquí</p>
+      <h2>Las cinco propuestas</h2>
+      <p>Cada una con su explicación: qué transmite, a quién le habla, y qué
+         gana y pierde frente a las otras.</p>
+
+      <!-- adelanto de las cinco paletas, en el orden A B C D E -->
+      <div class="palette" aria-hidden="true">
+        <span class="set">
+          <i style="background:#FDF8F0"></i><i style="background:#A8D0E2"></i>
+          <i style="background:#E4E356"></i><i style="background:#F5853C"></i>
+          <i style="background:#1F3D2B"></i>
+        </span>
+        <span class="set">
+          <i style="background:#FCFAF6"></i><i style="background:#C3C7E8"></i>
+          <i style="background:#4453C4"></i><i style="background:#F5705A"></i>
+          <i style="background:#1E2352"></i>
+        </span>
+        <span class="set">
+          <i style="background:#FDF7F1"></i><i style="background:#EFD3BE"></i>
+          <i style="background:#A85C33"></i><i style="background:#2F7D4C"></i>
+          <i style="background:#24352A"></i>
+        </span>
+        <span class="set">
+          <i style="background:#FFAF68"></i><i style="background:#E0DE55"></i>
+          <i style="background:#7CC5E7"></i><i style="background:#FF937D"></i>
+          <i style="background:#1F2A2E"></i>
+        </span>
+        <span class="set">
+          <i style="background:#FEFAF6"></i><i style="background:#F9F4EC"></i>
+          <i style="background:#F2EADD"></i><i style="background:#284132"></i>
+          <i style="background:#171515"></i>
+        </span>
+      </div>
+
+      <ul>
+        <li><b>Cítrica</b> — luminosa y con energía, la más atrevida.</li>
+        <li><b>Periwinkle</b> — serena y de confianza, la más sobria.</li>
+        <li><b>Terracota</b> — cálida y de tierra, la más acogedora.</li>
+        <li><b>Cristal</b> — la más actual, con degradados y transparencias.</li>
+        <li><b>Editorial</b> — firme y de revista, la única de esquina recta.</li>
+      </ul>
+      <p class="go">Ver las propuestas <span>→</span></p>
+    </a>
+
+    <a class="door" href="reference/index.html">
+      <p class="step">Material de trabajo</p>
+      <h2>Los sitios que elegiste</h2>
+      <p>Las cuatro webs que nos pasaste, analizadas en detalle: sus colores
+         exactos, sus tipografías y qué le hemos tomado prestado a cada una.</p>
+      <ul>
+        <li>Manhattan Wellness</li>
+        <li>myTherapyNYC</li>
+        <li>Ostler Therapy</li>
+        <li>Fresh Start Parenting</li>
+      </ul>
+      <p>Es la parte menos vistosa y la más útil para entender de dónde sale
+         cada decisión. Míralo si te apetece el detrás de cámaras.</p>
+      <p class="go">Ver el análisis <span>→</span></p>
+    </a>
+
+  </div>
+
+  <div class="note">
+    <h2>Tres cosas que conviene saber antes de mirar</h2>
+    <ul>
+      <li><b>Los textos y las fotos son de relleno.</b> Están ahí para que las
+          páginas tengan el tamaño y el ritmo reales, pero se escriben después.
+          Fíjate en el aspecto, no en lo que dicen.</li>
+      <li><b>Los botones todavía no llevan a ningún sitio.</b> El formulario de
+          contacto se construye más adelante.</li>
+      <li><b>Todos los textos se leen con comodidad</b>, también en móvil, con
+          brillo alto o con vista cansada. Está comprobado uno a uno, no
+          estimado a ojo. Donde un color de las referencias no llegaba, lo hemos
+          corregido.</li>
+    </ul>
+    <p>Se ve bien en móvil y en ordenador. Si algo te chirría, aunque no sepas
+       explicar por qué, dilo igual: esa sensación es justo lo que buscamos en
+       esta fase.</p>
+  </div>
+
+  <footer class="foot">
+    Fase de diseño y exploración · Propuestas de estilo, aún no es el sitio final
+  </footer>
+
+</div>
+
+</body>
+</html>

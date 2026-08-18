@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<title>Referencias extraídas — Johanna Bellorin, LCSW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;500;600;700&family=Caudex:wght@400;700&family=Jost:wght@300;400&family=Newsreader:ital,wght@1,500&family=Noto+Sans:wght@400;700&family=Oswald:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  :root {
+    --ui: "Montserrat", system-ui, sans-serif;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e3e3e3;
+    --page: #f6f6f4;
+  }
+  body {
+    margin: 0; background: var(--page); color: var(--ink);
+    font-family: var(--ui); font-size: 15px; line-height: 1.6;
+  }
+  .wrap { max-width: 1180px; margin-inline: auto; padding: 48px 24px 96px; }
+
+  header.top { margin-bottom: 48px; }
+  header.top h1 { font-size: 1.75rem; margin: 0 0 6px; letter-spacing: -0.01em; }
+  header.top p { margin: 0; color: var(--muted); max-width: 62ch; }
+  .meta { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+
+  /* --- tarjeta de referencia --- */
+  .ref {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    margin-bottom: 32px; overflow: hidden;
+  }
+  .ref > header {
+    display: flex; flex-wrap: wrap; gap: 16px; align-items: baseline;
+    justify-content: space-between;
+    padding: 20px 24px; border-bottom: 1px solid var(--line);
+  }
+  .ref h2 { margin: 0; font-size: 1.125rem; }
+  .ref h2 small { display: block; font-weight: 400; font-size: .8125rem; color: var(--muted); margin-top: 2px; }
+  .ref .links { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ref .links a {
+    font-size: .75rem; text-decoration: none; color: var(--ink);
+    border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px;
+    transition: background .15s;
+  }
+  .ref .links a:hover { background: var(--page); }
+  .ref .body { padding: 24px; display: grid; gap: 24px; }
+  @media (min-width: 900px) { .ref .body { grid-template-columns: 1fr 1fr; } }
+
+  h3.sub {
+    font-size: .6875rem; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--muted); margin: 0 0 10px; font-weight: 600;
+  }
+
+  /* --- swatches --- */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px,1fr)); gap: 8px; }
+  .sw { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .sw .chip { height: 56px; }
+  .sw .lbl { padding: 5px 7px; font-size: .625rem; line-height: 1.35; }
+  .sw .lbl b { display: block; font-weight: 600; }
+  .sw .lbl code { color: var(--muted); font-size: .625rem; }
+
+  /* --- especimen tipográfico --- */
+  .spec { border-left: 3px solid currentColor; padding-left: 14px; margin-bottom: 14px; }
+  .spec .tag { font-size: .625rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); display: block; margin-bottom: 3px; }
+
+  /* --- fila de datos --- */
+  dl.facts { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-size: .8125rem; }
+  dl.facts dt { color: var(--muted); }
+  dl.facts dd { margin: 0; }
+
+  .shot { width: 100%; border: 1px solid var(--line); border-radius: 6px; display: block; }
+
+  .rhythm { display: flex; height: 26px; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); }
+  .rhythm span { flex: 1; }
+
+  .warn {
+    background: #FFF8E1; border-left: 3px solid #E6A700; padding: 10px 14px;
+    font-size: .8125rem; border-radius: 0 4px 4px 0; margin-top: 14px;
+  }
+  .todo {
+    background: #fff; border: 1px dashed #c2c2c2; border-radius: 10px;
+    padding: 28px 24px; text-align: center; color: var(--muted);
+  }
+  .todo b { color: var(--ink); }
+
+  /* --- migas de vuelta a la portada --- */
+  .crumb {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: .8125rem; text-decoration: none; color: var(--muted);
+    margin-bottom: 22px; padding: 6px 13px 6px 11px;
+    border: 1px solid var(--line); border-radius: 999px; background: #fff;
+    transition: color .15s, border-color .15s;
+  }
+  .crumb:hover { color: var(--ink); border-color: #c9c9c9; }
+  .crumb span { transition: transform .15s; }
+  .crumb:hover span { transform: translateX(-3px); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="crumb" href="../index.html"><span>←</span> Portada</a>
+
+  <header class="top">
+    <p class="meta">Material de trabajo</p>
+    <h1>Los cuatro sitios que elegiste, por dentro</h1>
+    <p>Esta es la parte de detrás de cámaras. Para cada web que nos pasaste
+       hemos sacado sus colores exactos, sus tipografías y cómo construye sus
+       botones y tarjetas. No está medido a ojo: se ha leído directamente de
+       cada página.</p>
+    <p>Sirve para dos cosas. Una, saber qué te gusta de verdad de cada sitio y
+       poder reutilizarlo con criterio. Dos, detectar lo que no se puede copiar,
+       como la tipografía de Manhattan Wellness, que tiene licencia solo para
+       uso no comercial. Si prefieres ir directa a lo bonito, vuelve a la
+       portada y entra en las propuestas.</p>
+  </header>
+
+  <div id="refs"></div>
+
+  <div class="todo" id="pending"></div>
+
+</div>
+
+<script>
+/* ---------------------------------------------------------------
+   Para añadir una referencia: mete un objeto más en este array.
+   La página se construye sola.
+   --------------------------------------------------------------- */
+const REFS = [
+  {
+    n: "01",
+    name: "Manhattan Wellness",
+    url: "https://manhattanwellness.org/therapy-in-manhattan/",
+    dir: "01-manhattan-wellness",
+    stack: "WordPress + Showit",
+    idea: "Verde bosque sobre crema. Editorial, esquinas rectas, cero sombras, titulares en minúsculas.",
+    colors: [
+      ["Forest",     "#284132", "primario"],
+      ["Forest alt", "#294034", "footer"],
+      ["Cream",      "#F9F4EC", "fondo alterno"],
+      ["Ivory",      "#FEFAF6", "fondo suave"],
+      ["White",      "#FFFFFF", ""],
+      ["Ink",        "#171515", "cuerpo"],
+      ["Hairline",   "#E1E1E1", "líneas"]
+    ],
+    rhythm: ["#F9F4EC","#FFFFFF","#FFFFFF","#F9F4EC","#FFFFFF","#F9F4EC","#FFFFFF","#284132","#FEFAF6"],
+    specs: [
+      { tag: "Display · Agne → Playfair Display 700 · lowercase",
+        css: "font-family:'Playfair Display',serif;font-weight:700;font-size:34px;text-transform:lowercase;color:#284132;line-height:1.2",
+        text: "boutique therapy that's here for you" },
+      { tag: "Acento · Newsreader 500 italic · lowercase",
+        css: "font-family:Newsreader,serif;font-style:italic;font-weight:500;font-size:26px;text-transform:lowercase;color:#284132",
+        text: "and we mean that." },
+      { tag: "Cuerpo · Noto Sans 400 · lh 1.8 · ls .02em",
+        css: "font-family:'Noto Sans',sans-serif;font-size:15px;line-height:1.8;letter-spacing:.02em;color:#171515",
+        text: "Therapy is more than just talking: it's deeply personal." },
+      { tag: "UI · Montserrat 600 · uppercase · ls .12em",
+        css: "font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#284132",
+        text: "simple, stress-free" }
+    ],
+    facts: {
+      "Radio": "0 — recto. Solo el CTA flotante es pill",
+      "Sombras": "una sola en todo el sitio",
+      "Separador": "doble línea de 1px",
+      "Botón": "#284132 sobre texto #F9F4EC, 15px 28px"
+    },
+    warn: "<b>Agne</b> se distribuye bajo CC BY-NC-ND 3.0: prohíbe uso comercial. No es apta para un sitio de cliente. Sustituto por defecto: Playfair Display 700."
+  },
+  {
+    n: "02",
+    name: "myTherapyNYC",
+    url: "https://mytherapynyc.com/",
+    dir: "02-mytherapynyc",
+    stack: "WordPress + Elementor",
+    idea: "Teal + melocotón. Frío profesional contra cálido acogedor, todo pill y muy redondeado.",
+    colors: [
+      ["Teal",       "#466774", "primario"],
+      ["Peach",      "#F2BFA1", "acento / botón"],
+      ["Peach bg",   "#FFE3D2", "fondo sección"],
+      ["Cream",      "#FDF2EC", "fondo alterno"],
+      ["Mauve",      "#998585", "neutro cálido"],
+      ["Ink",        "#28303D", "cuerpo"],
+      ["Ink muted",  "#54595F", "secundario"]
+    ],
+    rhythm: ["#FFE3D2","#FFFFFF","#FFE3D2","#466774","#FDF2EC","#466774"],
+    specs: [
+      { tag: "Display · Abhaya Libre 500 · ls 4px",
+        css: "font-family:'Abhaya Libre',serif;font-weight:500;font-size:34px;letter-spacing:4px;color:#466774;line-height:1.05",
+        text: "Be Seen. Be Heard. Be Cared For." },
+      { tag: "H1 · Montserrat 700 · lh 1.7",
+        css: "font-family:Montserrat,sans-serif;font-weight:700;font-size:30px;line-height:1.7;color:#466774",
+        text: "Let's Begin Your Therapy Journey Together!" },
+      { tag: "Eyebrow · Montserrat 500 · ls .25em",
+        css: "font-family:Montserrat,sans-serif;font-weight:500;font-size:15px;letter-spacing:.25em;color:#466774",
+        text: "We are experts in therapy" },
+      { tag: "Nav · Montserrat 200 — muy fino",
+        css: "font-family:Montserrat,sans-serif;font-weight:200;font-size:15px;color:#28303D",
+        text: "Home · About · Services · Contact" }
+    ],
+    facts: {
+      "Radio": "30px botones · 50px tarjetas",
+      "Sombras": "difusas, casi invisibles",
+      "Recurso": "esquina única 0 80px 0 0",
+      "Botón": "#F2BFA1 sobre texto #466774, pill"
+    },
+    warn: "El botón primario (melocotón con texto teal) <b>no llega a 4.5:1</b> de contraste WCAG AA. Si adoptamos el patrón hay que oscurecer el texto. Además el cuerpo cae en la pila de sistema, así que el sitio se ve distinto en Mac y Windows."
+  },
+  {
+    n: "03",
+    name: "Ostler Therapy",
+    url: "https://www.ostlertherapy.com/",
+    dir: "03-ostler-therapy",
+    stack: "Squarespace",
+    idea: "Color blocking plano, pill total y cero sombras. La energía viene de la foto hipersaturada, el pill cítrico y los iconos de línea con destellos — no del fondo oscuro.",
+    colors: [
+      ["Chocolate",  "#310902", "fondo dominante"],
+      ["Sky",        "#95BCD0", "2º estructural"],
+      ["Citron",     "#E1DF66", "EL acento · CTA"],
+      ["Cream",      "#F3ECE3", "fondo claro"],
+      ["Orange",     "#E07338", "acento 2º"]
+    ],
+    rhythm: ["#95BCD0","#310902","#95BCD0","#310902","#F3ECE3","#95BCD0","#310902","#F3ECE3"],
+    specs: [
+      { tag: "Display · Instrument Serif · cursiva como énfasis",
+        css: "font-family:'Instrument Serif',serif;font-size:36px;line-height:1.05;letter-spacing:-.02em;color:#310902",
+        text: "Relational therapy for <em>real</em> connection" },
+      { tag: "Lead · Lato 400 · ls −0.01em",
+        css: "font-family:Lato,sans-serif;font-size:20px;line-height:1.3;letter-spacing:-.01em;color:#310902",
+        text: "My style is warm, engaged, direct, and conversational." },
+      { tag: "CTA · Oswald 400 · uppercase · pill 300px",
+        css: "font-family:Oswald,sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:.04em;background:#E1DF66;color:#310902;display:inline-block;padding:14px 18px;border-radius:300px",
+        text: "Free consultation" },
+      { tag: "Cuerpo · Lato 400",
+        css: "font-family:Lato,sans-serif;font-size:16px;line-height:1.6;letter-spacing:-.01em;color:#310902",
+        text: "You keep finding yourself in the same relationship patterns." }
+    ],
+    facts: {
+      "Radio": "300px — pill total, 10 de 13 radios",
+      "Sombras": "ninguna, cero en toda la página",
+      "Recurso": "iconos de línea + destellos dibujados",
+      "Botón": "#E1DF66 sobre texto oscuro, pill"
+    },
+    warn: "⚠️ El CTA de cabecera es cítrico <code>#E1DF66</code> con texto azul <code>#95BCD0</code>: <b>~1.4:1</b>, ilegible. Corregido en la adaptación.<br><br><b>Encargo: sin oscuros.</b> El chocolate <code>#310902</code> es solo el lienzo — se puede sustituir sin perder la energía. Ver la adaptación luminosa abajo."
+  },
+  {
+    n: "04",
+    name: "Fresh Start Parenting",
+    url: "https://www.freshstartparenting.com/",
+    dir: "04-fresh-start-parenting",
+    stack: "Wix · terapia infantil, Raleigh NC",
+    idea: "El cromo es blanco con verde apagado. Todo el color vivo viene de la foto de tangram del hero — el mismo mecanismo que en Ostler. Ejecución floja, pero Wix expone la paleta completa del tema.",
+    colors: [
+      ["Sage pale",   "#C9D8BF", "fondo sección"],
+      ["Sage",        "#A9C497", ""],
+      ["Green",       "#419C68", ""],
+      ["Green action","#176338", "nav activo"],
+      ["Green deep",  "#1D3B2A", "títulos · pie"],
+      ["Terracotta",  "#BD8364", "SIN USAR"],
+      ["Periwinkle",  "#B6BADB", "SIN USAR"],
+      ["Blue",        "#3946A8", "SIN USAR"]
+    ],
+    rhythm: ["#FFFFFF","#FFFFFF","#C9D8BF","#FFFFFF","#1D3B2A"],
+    specs: [
+      { tag: "Display · Caudex 400 · libre",
+        css: "font-family:Caudex,serif;font-size:32px;line-height:1.4;color:#1D3B2A",
+        text: "Everything that is important in the world" },
+      { tag: "H2 · Caudex 34px",
+        css: "font-family:Caudex,serif;font-size:26px;line-height:1.4;color:#1D3B2A",
+        text: "How It Works" },
+      { tag: "Cuerpo · Brandon Grot Light → Jost 300",
+        css: "font-family:Jost,sans-serif;font-weight:300;font-size:18px;line-height:1.4;color:#000",
+        text: "Difficulty Regulating Emotions" },
+      { tag: "CTA · borde 1px · radius 0 — el más débil",
+        css: "font-family:Jost,sans-serif;font-weight:300;font-size:16px;border:1px solid #1D3B2A;color:#1D3B2A;display:inline-block;padding:14px 22px;background:transparent",
+        text: "Book a Consultation" }
+    ],
+    facts: {
+      "Radio": "0 en cajas · 50% solo avatares",
+      "Sombras": "ninguna",
+      "line-height": "1.4em uniforme en TODA la escala",
+      "Ancho": "980px — estrecho, anticuado"
+    },
+    warn: "Sitio más flojo de los cuatro. <b>Arial es la fuente más usada: 409 veces</b>, por encima de las de marca — el fallback de Wix se filtra. <b>Dos de las cuatro webfonts declaradas nunca cargan</b> (Belinda script y DIN Next). Los botones llevan <code>color:#0000EE</code>, el azul de enlace por defecto, a 10px en Arial. Cuerpo en negro puro. <br><br>✅ <b>Lo aprovechable:</b> las familias <b>terracota y periwinkle están definidas y sin usar</b>. Verde + periwinkle + terracota tiene más nervio que nada que el sitio muestre."
+  }
+];
+
+/* --- Cuadro comparativo final --- */
+const MATRIX = {
+  cols: ["01 Manhattan", "02 myTherapy", "03 Ostler", "04 Fresh Start"],
+  rows: [
+    ["Radio botón",      "0 recto",      "30px pill",   "300px pill",  "0 + borde 1px"],
+    ["Sombras",          "1 en todo",    "difusas",     "ninguna",     "ninguna"],
+    ["Fuerza del CTA",   "media",        "media",       "alta ✓",      "muy baja ✗"],
+    ["Origen del color", "paleta",       "paleta",      "foto ✓",      "foto ✓"],
+    ["Licencias",        "Agne ✗",       "Roxborough ✗","todas ✓",     "Brandon ✗"],
+    ["Encaje con brief", "bajo",         "medio",       "alto ✓",      "bajo"]
+  ]
+};
+
+/* --- Adaptación luminosa pedida para el sitio 03 --- */
+const ADAPT = {
+  dir: "03-ostler-therapy",
+  title: "Adaptación luminosa · propuesta para Johanna",
+  note: "Se conserva el pill total, el cero-sombras, el color blocking, Instrument Serif con cursiva y la foto saturada. Se elimina el chocolate: el verde savia pasa a ser el segundo estructural y los acentos se saturan más, no menos.",
+  colors: [
+    ["Cream",      "#FDF8F0", "base"],
+    ["Sky",        "#A8D0E2", "estructural"],
+    ["Sky soft",   "#DCEEF5", "velo"],
+    ["Sage",       "#C4DBC4", "sustituye chocolate"],
+    ["Citron",     "#E4E356", "acento · CTA"],
+    ["Orange",     "#F07A32", "acento 2º"],
+    ["Coral",      "#F2593F", "acento 3º"],
+    ["Ink",        "#1F3D2B", "tinta"]
+  ],
+  rhythm: ["#FDF8F0","#A8D0E2","#FDF8F0","#C4DBC4","#F07A32","#DCEEF5","#FDF8F0"]
+};
+
+const PENDING = 4;   // objetivo total de referencias
+
+const el = (h) => { const d = document.createElement('div'); d.innerHTML = h.trim(); return d.firstElementChild; };
+
+document.getElementById('refs').append(...REFS.map(r => el(`
+  <section class="ref">
+    <header>
+      <h2>${r.n} · ${r.name}<small>${r.stack}</small></h2>
+      <div class="links">
+        <a href="${r.url}" target="_blank" rel="noopener">sitio original ↗</a>
+        <a href="${r.dir}/tokens.css">tokens.css</a>
+        <a href="${r.dir}/notes.md">notas</a>
+        ${r.dir === '01-manhattan-wellness' ? `<a href="${r.dir}/preview.html">muestrario</a>` : ''}
+      </div>
+    </header>
+    <div class="body">
+      <div>
+        <h3 class="sub">Idea central</h3>
+        <p style="margin:0 0 20px">${r.idea}</p>
+
+        <h3 class="sub">Paleta · por frecuencia de uso real</h3>
+        <div class="swatches">
+          ${r.colors.map(([n,hex,use]) => `
+            <div class="sw">
+              <div class="chip" style="background:${hex}"></div>
+              <div class="lbl"><b>${n}</b><code>${hex}</code>${use ? `<br><code>${use}</code>` : ''}</div>
+            </div>`).join('')}
+        </div>
+
+        <h3 class="sub" style="margin-top:20px">Ritmo de secciones</h3>
+        <div class="rhythm">${r.rhythm.map(c => `<span style="background:${c}"></span>`).join('')}</div>
+
+        <h3 class="sub" style="margin-top:20px">Forma y componentes</h3>
+        <dl class="facts">
+          ${Object.entries(r.facts).map(([k,v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}
+        </dl>
+
+        ${r.warn ? `<div class="warn">${r.warn}</div>` : ''}
+      </div>
+
+      <div>
+        <h3 class="sub">Especímenes tipográficos</h3>
+        ${r.specs.map(s => `
+          <div class="spec" style="color:${r.colors[0][1]}">
+            <span class="tag">${s.tag}</span>
+            <div style="${s.css}">${s.text}</div>
+          </div>`).join('')}
+
+        <h3 class="sub" style="margin-top:20px">Captura</h3>
+        <img class="shot" src="${r.dir}/hero.webp" alt="Captura de ${r.name}" loading="lazy">
+      </div>
+    </div>
+  </section>
+`)));
+
+/* --- tarjeta de adaptación luminosa --- */
+document.getElementById('refs').append(el(`
+  <section class="ref" style="border-color:#C9C736;border-width:2px">
+    <header style="background:#FDF8F0">
+      <h2>${ADAPT.title}<small>derivada de 03 · Ostler Therapy</small></h2>
+      <div class="links"><a href="${ADAPT.dir}/tokens.css">tokens.css</a></div>
+    </header>
+    <div class="body">
+      <div>
+        <h3 class="sub">Qué se conserva y qué cambia</h3>
+        <p style="margin:0 0 20px">${ADAPT.note}</p>
+
+        <h3 class="sub">Paleta luminosa</h3>
+        <div class="swatches">
+          ${ADAPT.colors.map(([n,hex,use]) => `
+            <div class="sw">
+              <div class="chip" style="background:${hex}"></div>
+              <div class="lbl"><b>${n}</b><code>${hex}</code>${use ? `<br><code>${use}</code>` : ''}</div>
+            </div>`).join('')}
+        </div>
+
+        <h3 class="sub" style="margin-top:20px">Ritmo propuesto · ningún bloque oscuro</h3>
+        <div class="rhythm">${ADAPT.rhythm.map(c => `<span style="background:${c}"></span>`).join('')}</div>
+      </div>
+
+      <div>
+        <h3 class="sub">Demo aplicada</h3>
+        <div style="background:#FDF8F0;border:1px solid #e3e3e3;border-radius:8px;padding:28px">
+          <p style="font-family:Oswald,sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#4A6152;margin:0 0 10px">
+            Welcome — Johanna Bellorin, LCSW
+          </p>
+          <h4 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:34px;line-height:1.05;letter-spacing:-.02em;color:#1F3D2B;margin:0 0 14px">
+            Therapy in NYC that doesn't feel like a <em>cold chore</em>.
+          </h4>
+          <p style="font-family:Lato,sans-serif;font-size:16px;line-height:1.6;letter-spacing:-.01em;color:#4A6152;margin:0 0 20px">
+            Warm, engaged and direct. A space where showing up feels easy.
+          </p>
+          <a href="#" style="font-family:Oswald,sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:.04em;background:#E4E356;color:#1F3D2B;display:inline-block;padding:14px 20px;border-radius:300px;text-decoration:none;margin-right:8px">
+            Book a consultation
+          </a>
+          <a href="#" style="font-family:Oswald,sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:.04em;background:#F07A32;color:#fff;display:inline-block;padding:14px 20px;border-radius:300px;text-decoration:none">
+            Watch intro
+          </a>
+          <div style="display:flex;gap:10px;margin-top:24px">
+            <span style="flex:1;height:52px;background:#A8D0E2;border-radius:30px"></span>
+            <span style="flex:1;height:52px;background:#C4DBC4;border-radius:30px"></span>
+            <span style="flex:1;height:52px;background:#F2593F;border-radius:30px"></span>
+          </div>
+        </div>
+        <div class="warn" style="background:#EAF7EA;border-left-color:#5A9E6F">
+          Contraste del CTA cítrico sobre tinta verde: <b>~9:1</b>. Muy por encima de WCAG AA.
+        </div>
+      </div>
+    </div>
+  </section>
+`));
+
+/* --- cuadro comparativo --- */
+document.getElementById('refs').append(el(`
+  <section class="ref">
+    <header><h2>Comparativa<small>las cuatro referencias, lado a lado</small></h2></header>
+    <div class="body" style="display:block">
+      <table style="width:100%;border-collapse:collapse;font-size:.8125rem">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);font-size:.6875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)"></th>
+            ${MATRIX.cols.map((c,i) => `<th style="text-align:left;padding:8px 10px;border-bottom:2px solid ${i===2?'#C9C736':'var(--line)'};font-size:.6875rem;text-transform:uppercase;letter-spacing:.06em">${c}</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          ${MATRIX.rows.map(r => `
+            <tr>
+              <td style="padding:9px 10px;border-bottom:1px solid var(--line);color:var(--muted)">${r[0]}</td>
+              ${r.slice(1).map((v,i) => `<td style="padding:9px 10px;border-bottom:1px solid var(--line);${i===2?'background:#FCFCEF;font-weight:600':''}">${v}</td>`).join('')}
+            </tr>`).join('')}
+        </tbody>
+      </table>
+      <div class="warn" style="background:#EAF7EA;border-left-color:#5A9E6F;margin-top:18px">
+        <b>Conclusión.</b> Ostler Therapy (03) es la base más sólida: único con las tres tipografías
+        libres y el CTA más fuerte. Y dos de los cuatro sitios consiguen su viveza por
+        <b>fotografía saturada</b>, no por paleta — es la palanca más eficaz y no compromete
+        la legibilidad del texto.
+      </div>
+    </div>
+  </section>
+`));
+
+const falta = PENDING - REFS.length;
+document.getElementById('pending').innerHTML = falta > 0
+  ? `<b>${REFS.length} de ${PENDING} referencias analizadas.</b><br>
+     Para añadir otra: crear <code>reference/0${REFS.length+1}-slug/</code> y meter un objeto más
+     en el array <code>REFS</code> de este archivo.`
+  : `<b>Las ${PENDING} referencias están analizadas.</b><br>
+     Siguiente paso: propuestas de estilo en <code>../mockups/</code>, partiendo de la
+     adaptación luminosa de Ostler más las familias sin usar de Fresh Start.`;
+</script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<title>E · Editorial — Johanna Bellorin, LCSW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Newsreader:ital,wght@1,400;1,500&family=Noto+Sans:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared/skeleton.css">
+<style>
+/* =============================================================
+   VARIANTE E · EDITORIAL
+   Derivada de Manhattan Wellness (referencia 01).
+
+   POR QUÉ EXISTE
+   Las cuatro primeras propuestas salieron todas redondeadas
+   porque ganó el vocabulario de Ostler y arrastró a las demás.
+   Pero de las cuatro referencias que eligió Johanna, DOS son de
+   esquina recta: Manhattan Wellness y Fresh Start, las dos con
+   border-radius 0 en botones. El reparto real es 2 y 2, así que
+   sin una propuesta recta no puede decidir sobre el eje que más
+   mueve la percepción: autoridad frente a cercanía.
+
+   Se basa en Manhattan y NO en Fresh Start a propósito: las
+   notas de Fresh Start dicen que su CTA «apenas se lee como
+   botón» y es el más débil de las cuatro. Copiaríamos el defecto.
+
+   EL RIESGO Y CÓMO SE COMPENSA
+   Recto + verde oscuro + cero sombras se va a frío y serio, que
+   es justo lo que el brief prohíbe. Cuatro decisiones lo evitan,
+   todas tomadas del propio original:
+     1. Titulares en minúsculas. Es la decisión más distintiva de
+        Manhattan y la que más rebaja la formalidad. Un titular
+        recto en minúsculas es firme sin ser rígido.
+     2. Escalera de fondos cálidos (marfil → crema → arena). El
+        original alterna blanco y crema; aquí se estira hacia el
+        cálido para alejarlo del gris.
+     3. La cursiva de Newsreader como voz de apoyo. Aporta lo
+        blando que la forma no da.
+     4. El verde profundo aparece UNA sola vez, como bloque de
+        clímax antes del pie, igual que en el original. Si tiñera
+        toda la página sí sería frío.
+   ============================================================= */
+:root {
+  /* ---------- un solo color ----------
+     El original no tiene tercer color: verde bosque contra dos
+     cálidos casi blancos, y nada más. Esa contención es la mitad
+     de su aire editorial, así que se respeta. */
+  --forest:      #284132;
+  --forest-deep: #1D3025;   /* estado hover del original */
+  --forest-tint: #E9EDEA;   /* tinte al 10%, fondos de icono */
+
+  /* ---------- estructurales ----------
+     Escalera cálida en vez del blanco/crema del original. */
+  --bg:        #FEFAF6;   /* marfil, la base */
+  --bg-alt:    #F9F4EC;   /* crema */
+  --block-1:   #F9F4EC;   /* crema — banda de vídeo */
+  --block-2:   #F2EADD;   /* arena, derivado de la crema. Da el
+                             tercer escalón sin meter color nuevo */
+  --surface:   #FFFFFF;
+
+  /* ---------- tinta ----------
+     #171515 es el cuerpo del original. Los titulares van en
+     verde, que es su --text-heading: eso separa jerarquía sin
+     necesitar un segundo tamaño. */
+  --ink:       #171515;
+  /* El original usa el cuerpo al 79% de opacidad. Aquí va en
+     color sólido y algo más oscuro: sobre arena (--block-2), que
+     es el fondo más oscuro de la escalera, el 79% se quedaba
+     corto para texto de 21px. Medición en la auditoría. */
+  --ink-muted: #4F4A48;
+  --hairline:  #E1E1E1;
+
+  /* ---------- acentos ----------
+     Verde bosque sobre crema: contraste altísimo, sin ajustes.
+     El secundario NO es un color nuevo, es el mismo verde en
+     versión perfilada. Así se mantiene la regla de un solo color
+     y el CTA primario no compite con nada. */
+  --accent:      var(--forest);
+  --accent-fg:   #F9F4EC;
+  --accent-2:    transparent;
+  --accent-2-fg: var(--forest);
+  --accent-3:    var(--forest-tint);
+  --accent-ink:  var(--forest);
+
+  /* ---------- tipografía ----------
+     OJO: Agne, la display real del original, se distribuye bajo
+     CC BY-NC-ND 3.0 — prohíbe uso comercial. No es utilizable en
+     el sitio de un cliente. Playfair Display 700 es el sustituto
+     libre: serif de alto contraste que aguanta bien en
+     minúsculas, que es como se usa aquí. */
+  --font-display: "Playfair Display", "Bodoni Moda", Georgia, serif;
+  --font-italic:  "Newsreader", Georgia, serif;
+  --font-ui:      "Montserrat", system-ui, sans-serif;
+  --font-body:    "Noto Sans", system-ui, sans-serif;
+  --display-weight: 700;
+  --display-case: lowercase;
+  --wordmark-case: lowercase;
+  --display-tracking: -0.015em;
+  --ui-weight: 600;
+
+  /* ---------- forma ----------
+     Cero radio en todo. Es la razón de ser de esta variante. */
+  --radius:      0;
+  --radius-sm:   0;
+  --radius-pill: 0;
+
+  /* Cero sombras. El original tiene UNA en toda la página y aquí
+     se respeta: va en el marco del vídeo, más abajo. La
+     separación entre secciones la hace el cambio de fondo, no la
+     elevación. */
+  --shadow:      none;
+
+  /* fondo del marcador de foto: color plano, sin degradado.
+     El original no usa ni un degradado. */
+  --photo-bg:    #DFD8CB;
+}
+
+/* ---------------------------------------------------------------
+   TITULARES EN VERDE
+   El esqueleto los pinta con --ink. En el original los titulares
+   son verdes y el cuerpo casi negro.
+   --------------------------------------------------------------- */
+h1, h2, h3, .wordmark b { color: var(--forest); }
+
+/* La cursiva de énfasis cambia de familia: Newsreader es la voz
+   blanda que compensa la rigidez de la forma recta. Va un punto
+   más grande porque Newsreader tiene una x-height menor que
+   Playfair y a igual tamaño parecía encogida. */
+h1 em, h2 em, h3 em {
+  font-family: var(--font-italic);
+  font-weight: 400;
+  font-size: 1.06em;
+  letter-spacing: 0;
+}
+
+/* Escala algo más corta que la del esqueleto: Playfair 700 es
+   ancho y en minúsculas ocupa más de lo que parece. */
+h1 { font-size: clamp(2.375rem, 5.2vw, 3.75rem); line-height: 1.1; }
+h2 { font-size: clamp(1.75rem, 3.4vw, 2.625rem); line-height: 1.12; }
+
+/* ---------------------------------------------------------------
+   DOBLE LÍNEA DE 1px — el recurso gráfico de esta variante
+   Es el separador decorativo recurrente del original. Hace de
+   equivalente a los destellos de A, el filete triple de B o el
+   arco de C: el detalle que se repite y da carácter.
+   --------------------------------------------------------------- */
+.dbl {
+  border: 0; height: 3px; width: 84px; margin: 0 0 var(--sp-5);
+  background:
+    linear-gradient(var(--forest), var(--forest)) top    left / 100% 1px no-repeat,
+    linear-gradient(var(--forest), var(--forest)) bottom left / 100% 1px no-repeat;
+}
+.dbl--wide { width: 100%; }
+.cta-band .dbl { margin-inline: auto; background-image:
+    linear-gradient(var(--accent-fg), var(--accent-fg)),
+    linear-gradient(var(--accent-fg), var(--accent-fg)); }
+
+/* ---------------------------------------------------------------
+   BOTONES RECTOS
+   El secundario es el mismo verde perfilado, no un color nuevo.
+   --------------------------------------------------------------- */
+.btn { padding: 15px 28px; min-width: 128px; letter-spacing: .06em; }
+.btn--2 { border-color: var(--forest); }
+.btn--2:hover { background: var(--forest); color: var(--accent-fg); }
+.btn:hover { filter: none; background: var(--forest-deep); }
+.btn--ghost:hover { background: var(--forest); color: var(--accent-fg); }
+
+/* ---------------------------------------------------------------
+   CUADRAR LO QUE EL ESQUELETO REDONDEA
+   El esqueleto trae círculos fijos en los chips de icono y en el
+   marcador del acordeón. En el original los círculos están
+   reservados a los avatares, así que aquí se cuadran. El botón de
+   play se queda redondo: es el único caso donde la forma es
+   convención universal, y el original también se permite una
+   excepción con su CTA flotante.
+   --------------------------------------------------------------- */
+.card__icon { border-radius: 0; }
+.faq summary::after { border-radius: 0; }
+.photo__tag { border-radius: 0; }
+
+/* la tarjeta recta no puede levantarse, no hay sombra que la
+   sostenga: el hover se marca con la línea y el fondo */
+.card:hover { transform: none; border-color: var(--forest); background: var(--bg-alt); }
+
+/* LA ÚNICA SOMBRA DE LA PÁGINA, igual que en el original */
+.video__frame { box-shadow: 0 2px 5px rgba(0,0,0,.25); }
+
+/* ---------------------------------------------------------------
+   EL BLOQUE VERDE, UNA SOLA VEZ
+   En el original el verde profundo aparece una única vez, como
+   clímax justo antes del pie. Es lo que evita que la página se
+   lea fría: el color fuerte es un acento estructural, no el tono
+   general.
+   --------------------------------------------------------------- */
+.cta-band { background: var(--forest); }
+.cta-band h2 { color: var(--accent-fg); }
+.cta-band .eyebrow { color: #CDD5CE; }        /* verde tint claro, 8.4:1 sobre el bosque */
+.cta-band .lead { color: #E4E0D6; }           /* crema apagado, 9.9:1 sobre el bosque */
+.cta-band .btn { background: var(--accent-fg); color: var(--forest); }
+.cta-band .btn:hover { background: #FFFFFF; }
+
+/* el pie cierra en marfil, como el original */
+.footer { background: var(--bg); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="wordmark" href="#"><b>Johanna Bellorin</b><span>LCSW · New York City</span></a>
+    <div class="nav__links">
+      <a href="#about">About</a><a href="#services">Services</a>
+      <a href="#fees">Fees</a><a href="#faq">FAQ</a>
+    </div>
+    <a class="btn" href="#book">Book a consult</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <p class="eyebrow">Welcome — licensed clinical social worker</p>
+      <h1>Therapy in NYC that doesn't feel like a <em>cold chore</em>.</h1>
+      <hr class="dbl">
+      <p class="lead">Warm, engaged and direct. A space where showing up feels easy,
+         and where the work actually goes somewhere.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#book">Book a free consult</a>
+        <a class="btn btn--2" href="#services">See how I work</a>
+      </div>
+      <ul class="traits">
+        <li><svg viewBox="0 0 24 24"><path d="M3 18a9 9 0 0 1 18 0"/><path d="M7 18a5 5 0 0 1 10 0"/></svg>Individual therapy</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>Couples</li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9z"/></svg>Life transitions</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 20L20 4M14 4h6v6"/></svg>Honest &amp; direct</li>
+      </ul>
+    </div>
+    <div>
+      <div class="photo"><span class="photo__tag">Foto de Johanna</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="video" id="about">
+  <div class="wrap video__grid">
+    <div class="video__frame">
+      <button class="play" aria-label="Play the welcome video">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <span class="photo__tag" style="position:absolute;bottom:18px;left:18px">Vídeo de 1 min</span>
+    </div>
+    <div class="quote">
+      <p>“You are the expert on your own life. My job is to help you <em>connect the dots</em>.”</p>
+      <cite>Johanna Bellorin, LCSW</cite>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <p class="eyebrow">What I work with</p>
+    <h2>Areas of expertise</h2>
+    <hr class="dbl">
+    <p class="lead" style="margin-bottom:var(--sp-6)">Every path looks different. These are the ones I walk most often.</p>
+    <div class="bento">
+      <a class="card card--wide" href="#">
+        <span class="card__icon"><svg viewBox="0 0 24 24"><path d="M3 18a9 9 0 0 1 18 0"/><path d="M7 18a5 5 0 0 1 10 0"/></svg></span>
+        <h3>Individual therapy</h3>
+        <p>Anxiety, self-esteem, burnout and the patterns that keep repeating. Weekly sessions, in person or virtual.</p>
+        <span class="card__more">Learn more →</span>
+      </a>
+      <a class="card" href="#">
+        <span class="card__icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></span>
+        <h3>Couples therapy</h3>
+        <p>Communication, trust and repair — for partners at any stage.</p>
+        <span class="card__more">Learn more →</span>
+      </a>
+      <a class="card" href="#">
+        <span class="card__icon"><svg viewBox="0 0 24 24"><path d="M4 20L20 4M14 4h6v6"/></svg></span>
+        <h3>Life transitions</h3>
+        <p>New city, new role, new family shape. Change is disorienting even when you chose it.</p>
+        <span class="card__more">Learn more →</span>
+      </a>
+      <a class="card" href="#">
+        <span class="card__icon"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9z"/></svg></span>
+        <h3>Dating &amp; relationships</h3>
+        <p>Attachment, boundaries and the stories we bring into every connection.</p>
+        <span class="card__more">Learn more →</span>
+      </a>
+      <a class="card" href="#">
+        <span class="card__icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/><path d="M9 12h6"/></svg></span>
+        <h3>Grief &amp; loss</h3>
+        <p>There is no timeline. We go at the pace the loss asks for.</p>
+        <span class="card__more">Learn more →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="insurance" id="fees">
+  <div class="wrap insurance__grid">
+    <div>
+      <p class="eyebrow">Fees &amp; insurance</p>
+      <h2>Out-of-network, made <em>simple</em>.</h2>
+      <hr class="dbl">
+      <p>I'm an out-of-network provider, which means you pay the session fee and your
+         insurance reimburses part of it. I file the claim on your behalf — you don't
+         chase paperwork.</p>
+      <p>Most PPO plans reimburse between 50% and 80% after the deductible. Here's
+         roughly how it looks.</p>
+      <a class="btn btn--2" href="#book">Check my benefits</a>
+    </div>
+    <div class="widget">
+      <h4 style="margin-top:0">Estimated cost per session</h4>
+      <dl style="margin:0">
+        <div class="widget__row"><dt>Session fee (50 min)</dt><dd>$250</dd></div>
+        <div class="widget__row"><dt>Typical PPO reimbursement</dt><dd>−$150</dd></div>
+        <div class="widget__row"><dt>Deductible met</dt><dd>Yes</dd></div>
+      </dl>
+      <div class="widget__total"><span>Your estimated cost</span><b>$100</b></div>
+      <p style="font-size:.8125rem;color:var(--ink-muted);margin:var(--sp-4) 0 0">
+        Illustrative only. Actual reimbursement depends on your plan.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="eyebrow">Good to know</p>
+    <h2>Questions people ask first</h2>
+    <hr class="dbl">
+    <div class="faq" style="margin-top:var(--sp-6)">
+      <details open><summary>How long is a session?</summary>
+        <p>Fifty minutes for individual work, sixty for couples. We can talk about longer
+           sessions if that suits the work better.</p></details>
+      <details><summary>Virtual or in person?</summary>
+        <p>Both. I see clients at the Manhattan office and across New York State by video.
+           Plenty of people mix the two depending on the week.</p></details>
+      <details><summary>How often would we meet?</summary>
+        <p>Weekly to start. It builds momentum, and momentum is most of the work. We can
+           space things out once you're steady.</p></details>
+      <details><summary>What's your cancellation policy?</summary>
+        <p>Twenty-four hours' notice and there's no charge. Life happens — tell me and
+           we'll sort it out.</p></details>
+      <details><summary>Do you prescribe medication?</summary>
+        <p>No, that's outside an LCSW's scope. If medication seems worth exploring I'll
+           refer you to a psychiatrist I trust and we'll keep working together.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="book">
+  <div class="wrap">
+    <p class="eyebrow">Ready when you are</p>
+    <h2 style="max-width:22ch">Let's find out if we're a <em>good fit</em>.</h2>
+    <hr class="dbl">
+    <p class="lead" style="max-width:52ch">A free 15-minute call. No pressure, no
+       commitment — just a conversation.</p>
+    <a class="btn" href="#">Book a free consult</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div>
+      <a class="wordmark" href="#"><b>Johanna Bellorin</b><span>LCSW · New York City</span></a>
+      <p style="font-size:.9375rem;color:var(--ink-muted);margin-top:var(--sp-4)">
+        Licensed Clinical Social Worker. Individual and couples therapy in Manhattan
+        and online across New York State.</p>
+    </div>
+    <div><h4>Practice</h4><ul>
+      <li><a href="#about">About</a></li><li><a href="#services">Services</a></li>
+      <li><a href="#fees">Fees &amp; insurance</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div><h4>Get in touch</h4><ul>
+      <li><a href="#">hello@johannabellorin.com</a></li><li><a href="#">(212) 555-0148</a></li>
+      <li>Flatiron, New York, NY</li></ul></div>
+  </div>
+  <div class="wrap footer__legal">
+    © 2026 Johanna Bellorin, LCSW · Mockup de estilo, contenido de relleno
+  </div>
+</footer>
+
+<nav class="variant-bar">
+  <strong>Variante</strong>
+  <a href="A-citrica.html">A · Cítrica</a>
+  <a href="B-periwinkle.html">B · Periwinkle</a>
+  <a href="C-terracota.html">C · Terracota</a>
+  <a href="D-cristal.html">D · Cristal</a>
+  <a href="E-editorial.html" aria-current="page">E · Editorial</a>
+  <a href="index.html">Comparar</a>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+/* =============================================================
+   OVERRIDES DE CRISTAL — solo para la variante D
+   Se carga DESPUÉS de skeleton.css.
+
+   Ojo: esto rompe tres decisiones del esqueleto a propósito.
+     · el pill de 300px pasa a radio moderado (el cristal se lee
+       mejor como panel que como cápsula)
+     · vuelven las sombras, muy difusas (el cristal necesita
+       separarse del fondo)
+     · el color plano se sustituye por degradado (sin nada detrás
+       que desenfocar, el cristal es una caja gris)
+
+   Los tres repliegues están cubiertos abajo:
+     @supports                      → panel sólido
+     prefers-reduced-transparency   → panel sólido
+     prefers-contrast: more         → sube opacidad y borde
+   ============================================================= */
+
+/* ---------------------------------------------------------------
+   FONDO — sin esto no hay efecto cristal
+   Degradado cálido en vez del típico azul-violeta, para no perder
+   la calidez que pide el brief.
+   --------------------------------------------------------------- */
+body {
+  /* Las manchas tienen que SOLAPARSE y cubrir el centro. En la
+     primera versión estaban en las cuatro esquinas y el medio caía
+     a crema plano, así que los paneles de cristal que viven ahí
+     leían como tarjetas blancas: sin color detrás no hay cristal. */
+  /* Paradas lavadas al 50%: este degradado está fijo al viewport,
+     así que queda detrás de TODA la página, incluidos los intros de
+     sección, que son texto plano sin panel. A plena saturación el
+     .lead sobre la mancha coral daba 3.31:1. Ver la nota de
+     --mesh-N-wash en la variante D para la medición completa.
+     La banda del hero (.hero::before) sí va a plena fuerza. */
+  background:
+    radial-gradient(85% 75% at 4% 0%,   var(--mesh-1-wash) 0%, transparent 88%),
+    radial-gradient(80% 70% at 99% 6%,  var(--mesh-2-wash) 0%, transparent 85%),
+    radial-gradient(92% 82% at 70% 96%, var(--mesh-3-wash) 0%, transparent 88%),
+    radial-gradient(78% 68% at 10% 74%, var(--mesh-4-wash) 0%, transparent 84%),
+    var(--bg);
+  background-attachment: fixed;
+}
+@media (max-width: 700px) {
+  /* fixed en móvil es caro y da saltos en iOS */
+  body { background-attachment: scroll; }
+}
+
+/* las bandas de sección dejan ver el degradado */
+.video, .insurance, .cta-band { background: transparent; }
+
+/* ---------------------------------------------------------------
+   LA SUPERFICIE DE CRISTAL
+   --------------------------------------------------------------- */
+.glass,
+.card,
+.quote,
+.widget,
+.video__frame,
+.photo {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius);
+}
+
+/* canto de luz superior — lo que vende el cristal */
+.card, .widget, .quote {
+  position: relative; overflow: hidden;
+}
+.card::before, .widget::before, .quote::before {
+  content: ''; position: absolute; inset: 0 0 auto 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-sheen), transparent);
+  pointer-events: none;
+}
+
+.card:hover { transform: translateY(-4px); border-color: var(--glass-border-hi); }
+
+/* ---------------------------------------------------------------
+   NAV de cristal
+   --------------------------------------------------------------- */
+.nav {
+  background: var(--glass-bg-nav);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* ---------------------------------------------------------------
+   TEXTO SOBRE CRISTAL
+   El contraste no se puede garantizar contra un fondo variable, así
+   que el texto largo va sobre el panel más opaco, nunca sobre el
+   degradado desnudo.
+   --------------------------------------------------------------- */
+.hero__copy {
+  background: var(--glass-bg-solid);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+  padding: clamp(28px, 4vw, 52px);
+}
+
+/* el marcador de foto no lleva cristal: es el que aporta el color */
+.photo {
+  background: linear-gradient(150deg, var(--mesh-2), var(--mesh-3));
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+
+/* ---------------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------------- */
+.footer {
+  background: var(--glass-bg-nav);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-top: 1px solid var(--glass-border);
+}
+
+/* ---------------------------------------------------------------
+   REPLIEGUE 1 — navegador sin backdrop-filter
+   --------------------------------------------------------------- */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass, .card, .quote, .widget, .video__frame,
+  .hero__copy, .nav, .footer {
+    background: var(--glass-fallback);
+  }
+}
+
+/* ---------------------------------------------------------------
+   REPLIEGUE 2 — el usuario pide menos transparencia
+   --------------------------------------------------------------- */
+@media (prefers-reduced-transparency: reduce) {
+  .glass, .card, .quote, .widget, .video__frame,
+  .hero__copy, .nav, .footer {
+    background: var(--glass-fallback);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  body { background: var(--bg); }
+}
+
+/* ---------------------------------------------------------------
+   REPLIEGUE 3 — el usuario pide más contraste
+   --------------------------------------------------------------- */
+@media (prefers-contrast: more) {
+  .glass, .card, .quote, .widget, .hero__copy {
+    background: var(--glass-fallback);
+    border-color: var(--ink);
+  }
+}

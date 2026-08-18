@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema extraído — Manhattan Wellness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;1,300;1,500&family=Noto+Sans:wght@400;700&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./tokens.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--mw-bg);
+    color: var(--mw-text);
+    font-family: var(--mw-font-body);
+    font-size: var(--mw-fs-body);
+    line-height: var(--mw-lh-body);
+    letter-spacing: var(--mw-ls-body);
+  }
+  .wrap { max-width: var(--mw-container); margin-inline: auto; padding: var(--mw-space-8) var(--mw-space-5); }
+  section + section { border-top: var(--mw-border-width) solid var(--mw-border); }
+
+  .eyebrow {
+    font-family: var(--mw-font-ui);
+    font-size: var(--mw-fs-eyebrow);
+    font-weight: var(--mw-fw-ui);
+    letter-spacing: var(--mw-ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--mw-forest);
+    margin: 0 0 var(--mw-space-4);
+  }
+  h1, h2, h3 {
+    font-family: var(--mw-font-display);
+    font-weight: 700;
+    color: var(--mw-text-heading);
+    text-transform: lowercase;
+    margin: 0 0 var(--mw-space-4);
+    letter-spacing: -0.01em;
+  }
+  h1 { font-size: var(--mw-fs-h1); line-height: var(--mw-lh-h1); }
+  h2 { font-size: var(--mw-fs-h2); line-height: var(--mw-lh-h2); }
+  h3 { font-size: var(--mw-fs-h3); line-height: var(--mw-lh-h3); }
+  .accent {
+    font-family: var(--mw-font-italic);
+    font-style: italic;
+    font-weight: 500;
+    font-size: var(--mw-fs-italic);
+    line-height: var(--mw-lh-italic);
+    text-transform: lowercase;
+    color: var(--mw-forest);
+    margin: 0 0 var(--mw-space-5);
+  }
+  p { max-width: 62ch; }
+
+  /* --- botones --- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: var(--mw-space-3);
+    min-width: var(--mw-btn-min-w);
+    padding: var(--mw-btn-padding);
+    border: var(--mw-border-width) solid var(--mw-btn-bg);
+    border-radius: var(--mw-radius-none);
+    background: var(--mw-btn-bg);
+    color: var(--mw-btn-fg);
+    font-family: var(--mw-font-ui);
+    font-size: var(--mw-fs-btn);
+    font-weight: var(--mw-fw-ui);
+    letter-spacing: var(--mw-ls-btn);
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
+  }
+  .btn:hover { background: var(--mw-btn-bg-hover); border-color: var(--mw-btn-bg-hover); }
+  .btn--outline { background: transparent; color: var(--mw-forest); }
+  .btn--outline:hover { background: var(--mw-forest); color: var(--mw-btn-fg); }
+  .btn--pill { border-radius: var(--mw-radius-pill); box-shadow: var(--mw-shadow-cta); font-weight: var(--mw-fw-bold); }
+  .btn--on-dark { background: var(--mw-cream); color: var(--mw-forest); border-color: var(--mw-cream); }
+  .btn--on-dark:hover { background: var(--mw-white); border-color: var(--mw-white); }
+
+  /* --- nav --- */
+  .nav {
+    display: flex; align-items: center; gap: var(--mw-space-6);
+    padding: var(--mw-space-5) var(--mw-space-5);
+    border-bottom: var(--mw-border-width) solid var(--mw-border);
+    flex-wrap: wrap;
+  }
+  .nav a:not(.btn) {
+    font-family: var(--mw-font-ui); font-size: var(--mw-fs-nav);
+    letter-spacing: var(--mw-ls-nav); text-transform: uppercase;
+    color: var(--mw-ink-strong); text-decoration: none;
+  }
+  .nav a:not(.btn):hover { color: var(--mw-forest); }
+  .logo {
+    font-family: var(--mw-font-display); font-weight: 800;
+    font-size: 1.75rem; line-height: .95; color: var(--mw-forest);
+    text-transform: lowercase; margin-inline: auto; text-align: center;
+  }
+
+  /* --- swatches --- */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--mw-space-4); list-style: none; padding: 0; margin: 0; }
+  .swatch { border: var(--mw-border-width) solid var(--mw-border); }
+  .swatch .chip { height: 110px; }
+  .swatch .meta { padding: var(--mw-space-3) var(--mw-space-4); font-family: var(--mw-font-ui); font-size: .75rem; letter-spacing: .04em; }
+  .swatch .name { font-weight: 600; text-transform: uppercase; display: block; }
+  .swatch code { font-size: .75rem; color: var(--mw-ink-muted); }
+
+  /* --- bandas de sección --- */
+  .band { padding: var(--mw-space-9) var(--mw-space-5); }
+  .band--cream  { background: var(--mw-cream); }
+  .band--ivory  { background: var(--mw-ivory); }
+  .band--forest { background: var(--mw-forest); }
+  .band--forest h2, .band--forest h3, .band--forest .accent, .band--forest .eyebrow { color: var(--mw-cream); }
+  .band--forest p { color: var(--mw-cream); }
+  .band > .inner { max-width: var(--mw-container); margin-inline: auto; }
+
+  .grid-2 { display: grid; gap: var(--mw-space-7); grid-template-columns: 1fr; }
+  @media (min-width: 860px) { .grid-2 { grid-template-columns: 1fr 1fr; align-items: center; } }
+
+  .card { background: var(--mw-white); padding: var(--mw-space-5); border: var(--mw-border-width) solid var(--mw-border); }
+  .card h4 {
+    font-family: var(--mw-font-italic); font-style: italic; font-weight: 500;
+    font-size: var(--mw-fs-card); line-height: var(--mw-lh-card);
+    text-transform: lowercase; color: var(--mw-forest); margin: 0 0 var(--mw-space-3);
+  }
+  .tag {
+    display: inline-block; background: var(--mw-forest); color: var(--mw-white);
+    font-family: var(--mw-font-ui); font-size: .6875rem; font-weight: 500;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: 6px 12px; margin-bottom: var(--mw-space-3);
+  }
+  .cards { display: grid; gap: var(--mw-space-5); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+  .specimen { border-left: 3px solid var(--mw-forest); padding-left: var(--mw-space-5); margin-bottom: var(--mw-space-6); }
+  .specimen .label { font-family: var(--mw-font-ui); font-size: .6875rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--mw-ink-muted); display: block; margin-bottom: var(--mw-space-2); }
+
+  .note { background: var(--mw-cream); border-left: 3px solid var(--mw-forest); padding: var(--mw-space-5); font-size: .9375rem; }
+  .note strong { font-family: var(--mw-font-ui); }
+
+  .hr-double { border: 0; border-top: 1px solid var(--mw-ink-strong); border-bottom: 1px solid var(--mw-ink-strong); height: 4px; margin: var(--mw-space-6) 0; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV (réplica de la estructura del original) ============ -->
+<nav class="nav">
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Meet Our Team</a>
+  <a href="#">Areas of Expertise</a>
+  <span class="logo">manhattan<br>wellness</span>
+  <a href="#">Blog</a>
+  <a href="#">Resources</a>
+  <a href="#">Get in touch</a>
+  <a class="btn" href="#">Book now</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="band band--cream">
+  <div class="inner grid-2">
+    <div style="background:var(--mw-forest-tint-25); aspect-ratio:4/5;"></div>
+    <div>
+      <p class="eyebrow">Welcome to Manhattan Wellness</p>
+      <h1>boutique therapy that's here for you, always.</h1>
+      <p class="accent">and we mean that.</p>
+      <p>Life doesn't always go according to plan, and when that happens it can feel
+         like the walls around you are caving in. We're here to help you push those
+         walls back up and construct a life that feels aligned with the one you have
+         always envisioned for yourself.</p>
+      <p style="margin-top:var(--mw-space-5)">
+        <a class="btn" href="#">Book a free consult →</a>
+        <a class="btn btn--outline" href="#">Meet our team</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PALETA ============ -->
+<section class="wrap">
+  <p class="eyebrow">01 — Paleta</p>
+  <h2>colores extraídos</h2>
+  <p style="margin-bottom:var(--mw-space-6)">Ordenados por frecuencia de uso real en el DOM de la página original.</p>
+
+  <ul class="swatches">
+    <li class="swatch"><div class="chip" style="background:#284132"></div>
+      <div class="meta"><span class="name">Forest</span><code>#284132</code><br><code>rgb(40,65,50)</code></div></li>
+    <li class="swatch"><div class="chip" style="background:#294034"></div>
+      <div class="meta"><span class="name">Forest alt</span><code>#294034</code><br><code>rgb(41,64,52)</code></div></li>
+    <li class="swatch"><div class="chip" style="background:#F9F4EC"></div>
+      <div class="meta"><span class="name">Cream</span><code>#F9F4EC</code><br><code>rgb(249,244,236)</code></div></li>
+    <li class="swatch"><div class="chip" style="background:#FEFAF6"></div>
+      <div class="meta"><span class="name">Ivory</span><code>#FEFAF6</code><br><code>rgb(254,250,246)</code></div></li>
+    <li class="swatch"><div class="chip" style="background:#FFFFFF"></div>
+      <div class="meta"><span class="name">White</span><code>#FFFFFF</code></div></li>
+    <li class="swatch"><div class="chip" style="background:#171515"></div>
+      <div class="meta"><span class="name">Ink</span><code>#171515</code><br><code>rgb(23,21,21)</code></div></li>
+    <li class="swatch"><div class="chip" style="background:#000000"></div>
+      <div class="meta"><span class="name">Ink strong</span><code>#000000</code></div></li>
+    <li class="swatch"><div class="chip" style="background:#E1E1E1"></div>
+      <div class="meta"><span class="name">Hairline</span><code>#E1E1E1</code></div></li>
+    <li class="swatch"><div class="chip" style="background:#1D3025"></div>
+      <div class="meta"><span class="name">Forest hover</span><code>#1D3025</code><br><code>derivado</code></div></li>
+    <li class="swatch"><div class="chip" style="background:#C9D0CB"></div>
+      <div class="meta"><span class="name">Forest 25%</span><code>#C9D0CB</code><br><code>derivado</code></div></li>
+  </ul>
+
+  <div class="note" style="margin-top:var(--mw-space-6)">
+    <strong>Cómo se combinan:</strong> el ritmo de la página es
+    <code>cream → white → white → cream → white → cream → white → forest → ivory</code>.
+    Blanco y crema alternan para separar secciones sin usar bordes;
+    el verde profundo aparece una sola vez, como bloque de clímax antes del footer.
+  </div>
+</section>
+
+<!-- ============ TIPOGRAFÍA ============ -->
+<section class="wrap">
+  <p class="eyebrow">02 — Tipografía</p>
+  <h2>escala y familias</h2>
+
+  <div class="specimen">
+    <span class="label">Display — Agne (original) · Playfair Display 700 (sustituto) · lowercase</span>
+    <h1 style="margin:0">boutique therapy that's here for you</h1>
+  </div>
+  <div class="specimen">
+    <span class="label">H2 display — 38px/45.6 en el original</span>
+    <h2 style="margin:0">latest from the blog</h2>
+  </div>
+  <div class="specimen">
+    <span class="label">H3 display — 26px/33.8 en el original</span>
+    <h3 style="margin:0">therapy that feels different</h3>
+  </div>
+  <div class="specimen">
+    <span class="label">Acento — Newsreader 500 italic · lowercase</span>
+    <p class="accent" style="margin:0">and we mean that.</p>
+  </div>
+  <div class="specimen">
+    <span class="label">Cuerpo — Noto Sans 400 · lh 1.8 · letter-spacing 0.02em</span>
+    <p style="margin:0">Manhattan Wellness isn't your typical therapy practice — that's by design.
+      If traditional counseling has ever felt too cold, clinical or inauthentic, we're here
+      to offer something <strong>different</strong>.</p>
+  </div>
+  <div class="specimen">
+    <span class="label">Eyebrow / kicker — Montserrat 600 uppercase · ls 0.12em</span>
+    <p class="eyebrow" style="margin:0">simple, stress-free</p>
+  </div>
+  <div class="specimen">
+    <span class="label">Nav — Montserrat 400 uppercase · ls 0.12em</span>
+    <span style="font-family:var(--mw-font-ui);font-size:var(--mw-fs-nav);letter-spacing:var(--mw-ls-nav);text-transform:uppercase">areas of expertise</span>
+  </div>
+
+  <hr class="hr-double">
+
+  <p class="eyebrow">Detalle de firma</p>
+  <p>El original usa <strong>doble línea de 1px</strong> (arriba y abajo) como separador,
+     nunca sombras. El <code>border-radius</code> es <strong>0</strong> en botones y tarjetas;
+     solo el CTA flotante es un pill y los avatares son círculos.</p>
+</section>
+
+<!-- ============ COMPONENTES ============ -->
+<section class="band band--ivory">
+  <div class="inner">
+    <p class="eyebrow">03 — Componentes</p>
+    <h2>botones y tarjetas</h2>
+    <p style="margin-bottom:var(--mw-space-5)">
+      <a class="btn" href="#">Book now</a>
+      <a class="btn btn--outline" href="#">Learn more</a>
+      <a class="btn btn--pill" href="#">Schedule a free consult with us</a>
+    </p>
+
+    <div class="cards" style="margin-top:var(--mw-space-6)">
+      <article class="card">
+        <span class="tag">Dating &amp; Relationships</span>
+        <h4>insecure in your relationship: 8 causes and what helps</h4>
+        <p style="margin:0">Trust and relatability are key for making progress in therapy.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Anxiety</span>
+        <h4>when the walls feel like they're caving in</h4>
+        <p style="margin:0">Evidence-based psychotherapy in safe, supportive sessions.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Self-esteem</span>
+        <h4>you are the expert of your own experience</h4>
+        <p style="margin:0">We're here to help you connect the dots.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BANDA OSCURA ============ -->
+<section class="band band--forest">
+  <div class="inner">
+    <p class="eyebrow">simple, stress-free</p>
+    <h2>therapy that feels different</h2>
+    <p>Real conversations, real support, and a process that puts you first.
+       Book a quick consult to meet your match and take your first step forward.</p>
+    <p>We would love to be here for you, always.</p>
+    <p style="margin-top:var(--mw-space-5)">
+      <a class="btn btn--on-dark" href="#">Book a free consult</a>
+    </p>
+  </div>
+</section>
+
+<footer class="wrap" style="font-family:var(--mw-font-ui);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mw-ink-muted)">
+  Tokens extraídos de manhattanwellness.org · solo para referencia de diseño
+</footer>
+
+</body>
+</html>
