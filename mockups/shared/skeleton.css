@@ -337,13 +337,31 @@ section { padding-block: var(--sp-9); }
 /* ---------------------------------------------------------------
    BARRA DE VARIANTE — solo para la presentación, no es del diseño
    --------------------------------------------------------------- */
+/* Ojo con el alto: esta barra es fixed y el body reserva su hueco con
+   un padding-bottom fijo de 52px. Si la barra envuelve a varias filas,
+   crece y tapa el final de la página. Pasó al subir a siete variantes:
+   en móvil se iba a cuatro filas y 134px, comiéndose 26px de contenido.
+   Por eso NO envuelve: se desplaza en horizontal, así siempre mide una
+   fila y el hueco reservado sigue siendo correcto. */
 .variant-bar {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
   background: #14171A; color: #fff;
   font: 500 12px/1 ui-sans-serif, system-ui, sans-serif;
   letter-spacing: .06em; text-transform: uppercase;
   display: flex; gap: 4px; align-items: center; justify-content: center;
-  padding: 9px 12px; flex-wrap: wrap;
+  padding: 9px 12px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;              /* Firefox */
+}
+.variant-bar::-webkit-scrollbar { display: none; }
+.variant-bar > * { flex: none; }
+/* cuando no cabe, alinear a la izquierda: centrado, el primer elemento
+   se queda cortado fuera de la vista y no se ve que hay más */
+@media (max-width: 780px) {
+  .variant-bar { justify-content: flex-start; }
+  .variant-bar strong { display: none; }   /* la etiqueta «Variante» sobra */
 }
 .variant-bar a {
   color: #fff; text-decoration: none; opacity: .5;

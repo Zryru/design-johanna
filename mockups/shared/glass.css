@@ -1,6 +1,18 @@
 /* =============================================================
-   OVERRIDES DE CRISTAL — solo para la variante D
+   CAPA DE CRISTAL — la usan D, F y G
    Se carga DESPUÉS de skeleton.css.
+
+   Todo sale de tokens, así que cada variante decide su propio
+   aspecto sin tocar este archivo. Contrato de tokens:
+     --mesh-1..4  --mesh-1-wash..4-wash
+     --glass-bg  --glass-bg-nav  --glass-bg-solid
+     --glass-blur  --glass-sat  --glass-border  --glass-border-hi
+     --glass-sheen  --glass-shadow  --glass-fallback
+
+   Cómo se desactiva el mesh de página: poniendo los cuatro
+   --mesh-N-wash en transparent. Las manchas no pintan y el body se
+   queda en var(--bg) plano. Lo hace F, que conserva el color
+   blocking de A y solo quiere cristal en el hero.
 
    Ojo: esto rompe tres decisiones del esqueleto a propósito.
      · el pill de 300px pasa a radio moderado (el cristal se lee

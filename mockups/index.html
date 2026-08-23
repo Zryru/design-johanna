@@ -130,6 +130,29 @@
   .ask p { margin: 0 0 10px; max-width: 78ch; }
   .ask p:last-child { margin-bottom: 0; }
 
+  /* --- bloque plegable de la primera ronda ---
+     Presentar siete propuestas planas reabriría una decisión que
+     Johanna ya cerró. Las tres descartadas quedan accesibles pero
+     fuera del camino principal. */
+  .archivo {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px 24px; margin-bottom: 40px;
+  }
+  .archivo > summary {
+    cursor: pointer; font-weight: 600; font-size: .9375rem;
+    display: flex; align-items: center; gap: 9px; list-style: none;
+  }
+  .archivo > summary::-webkit-details-marker { display: none; }
+  .archivo > summary::before {
+    content: ''; flex: none; width: 9px; height: 9px;
+    border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+    transform: rotate(-45deg); transition: transform .2s;
+  }
+  .archivo[open] > summary::before { transform: rotate(45deg); }
+  .archivo > p { color: var(--muted); max-width: 76ch; margin: 12px 0 0; }
+  .archivo[open] > p { margin-bottom: 28px; }
+  .archivo #archivo .v:last-child { margin-bottom: 0; }
+
   /* --- migas de vuelta a la portada --- */
   .crumb {
     display: inline-flex; align-items: center; gap: 7px;
@@ -149,18 +172,40 @@
   <a class="crumb" href="../index.html"><span>←</span> Portada</a>
 
   <header class="top">
-    <p class="meta">Propuestas de estilo</p>
-    <h1>Cinco caminos para tu web</h1>
-    <p>Las cinco son la misma página, con las mismas secciones y el mismo texto.
-       Lo único que cambia es la personalidad: el color, la tipografía y la
-       forma. Está hecho así a propósito, para que la comparación sea justa. Si
-       una te gusta más, será por su estilo y no porque tenga mejores fotos o
-       más contenido.</p>
-    <p>No hace falta elegir una entera. Es igual de útil decir «me gusta el
-       color de esta con la letra de aquella», o señalar una sola sección que no
-       te encaja. Cuatro salen de los sitios que nos pasaste; la quinta explora
-       algo que esos sitios sí hacían y a nosotros se nos había escapado.</p>
+    <p class="meta">Segunda ronda</p>
+    <h1>Tus dos favoritas, y dos cruces entre ellas</h1>
+    <p>Dijiste que te quedabas con la <b>Cítrica</b> y la <b>Cristal</b>, y que
+       de las dos te tiraba algo más la Cristal. También apuntaste dos ideas muy
+       concretas: la Cristal con una letra más suave como la de la Cítrica, y la
+       Cítrica con el efecto cristal. Las dos estaban bien vistas, así que las
+       hemos construido.</p>
+    <p>Arriba tienes las cuatro que importan ahora: tus dos favoritas y los dos
+       cruces. Las otras tres siguen disponibles más abajo, guardadas, por si
+       quieres volver a mirarlas.</p>
   </header>
+
+  <div class="method">
+    <h2>Qué son exactamente los dos cruces</h2>
+    <ul>
+      <li><b>F, Cítrica Cristal.</b> Los colores y el estilo de la Cítrica con
+          los paneles de vidrio de la Cristal. Conserva lo que la hacía ella:
+          los botones de cápsula, los destellos dibujados y las franjas de azul
+          y verde. Hay un detalle que merece explicación: el vidrio necesita
+          color detrás para notarse, porque sobre una superficie de un solo tono
+          no hay nada que difuminar. Así que el degradado aparece solo en la
+          cabecera, donde el efecto se luce, y el resto de la página mantiene
+          las franjas de color planas de la Cítrica. Es un cristal más discreto
+          que el de la D, a cambio de no perder tu paleta.</li>
+      <li><b>G, Cristal Suave.</b> Exactamente la Cristal que te gustó, con la
+          letra de la Cítrica. Nada más cambia, para que puedas juzgar solo la
+          tipografía. Y el cambio de letra ha traído dos regalos: vuelve la
+          cursiva en los titulares, que con la letra anterior no lucía, y el
+          titular puede ir más grande porque esta tipografía es más estrecha.
+          Sospecho que esto es justo lo que buscabas al decir «más suave».</li>
+    </ul>
+    <p>Si al verlas te gusta una mezcla nueva, dilo sin problema. Cruzar
+       propuestas es rápido, y es exactamente así como se afina.</p>
+  </div>
 
   <div class="method">
     <h2>Cómo mirar esto</h2>
@@ -168,15 +213,15 @@
       <li><b>Fíjate en la sensación, no en el texto.</b> Los textos son de
           relleno y las fotos son marcadores grises. Se escriben y se hacen
           después. Lo que se decide ahora es el tono visual.</li>
-      <li><b>Cuatro llevan letra clásica y una lleva letra moderna.</b> A, B, C
-          y E usan tipografías con remate, esas que tienen pequeños trazos en
-          las puntas y transmiten oficio y confianza. D usa una letra sin
-          remate, más de tecnología y actualidad. Es la diferencia que antes
-          notas sin saber nombrarla.</li>
-      <li><b>Mira las esquinas.</b> A, B, C y D son redondeadas, que suena
-          cercano y amable. E es de esquina recta, que suena firme y de
-          revista. Es lo que más mueve la percepción entre «me va a cuidar» y
-          «sabe lo que hace», y por eso hay una propuesta de cada tipo.</li>
+      <li><b>Mira el tipo de letra.</b> Las tipografías con remate, esas que
+          tienen pequeños trazos en las puntas, transmiten oficio y confianza.
+          Las que no lo tienen suenan más de tecnología y actualidad. Ahora
+          mismo la única sin remate es la D, y ese es justo el cambio que
+          propusiste con la G.</li>
+      <li><b>Mira las esquinas y los relieves.</b> Cuanto más redondo y más
+          blando el relieve, más cercano y amable. Cuanto más recto y plano,
+          más firme y de revista. Es lo que más mueve la percepción entre «me va
+          a cuidar» y «sabe lo que hace».</li>
       <li><b>Tu nombre es el logo.</b> No hay símbolo ni marca previa, así que
           la tipografía carga con toda la identidad. De ahí que cada propuesta
           se juegue tanto en esa elección.</li>
@@ -232,25 +277,32 @@
     <div class="scroll"><table id="matrix"></table></div>
   </div>
 
+  <details class="archivo">
+    <summary>Las otras tres propuestas de la primera ronda</summary>
+    <p>Las dejamos guardadas aquí para no distraer, pero siguen enteras y
+       funcionando. Si alguna te apetece revisar, ábrela sin problema.</p>
+    <div id="archivo"></div>
+  </details>
+
   <div class="ask">
-    <h2>Lo que más va a condicionar tu elección</h2>
-    <p><b>Las fotos importan más que la paleta.</b> El hallazgo principal al
-       analizar tus referencias es que en los dos sitios más vivos, Ostler y
-       Fresh Start, el color no viene de la decoración: viene de la fotografía.
-       Las caléndulas naranjas de uno y las piezas de colores del otro. El
-       diseño solo pone el lienzo.</p>
-    <p>Como habrá sesión profesional, las cinco propuestas están en igualdad de
-       condiciones. Aun así cada una le pide algo distinto a la cámara:
-       <b>A</b> quiere color y luz, <b>E</b> quiere buen encuadre y espacio
-       alrededor, <b>D</b> no necesita foto en absoluto, y <b>B</b> y <b>C</b>
-       se conforman con cualquier retrato decente. Si te gusta A o E, merece la
-       pena llevar esa referencia a la sesión.</p>
-    <p><b>Y una pregunta para ti.</b> ¿Cuánto peso quieres que tenga el lado más
-       desenfadado de tu trabajo, sobre todo en terapia de pareja? Es lo que
+    <h2>Lo que queda por decidir</h2>
+    <p><b>La pregunta principal ahora.</b> Entre tus dos favoritas y sus dos
+       cruces, ¿cuál te pide el cuerpo? Si dudas entre dos, dilo también: saber
+       qué te gusta de cada una nos sirve tanto como una elección limpia.</p>
+    <p><b>Las fotos importan más que la paleta.</b> Al analizar tus referencias,
+       el hallazgo principal fue que en los sitios más vivos el color no viene
+       de la decoración: viene de la fotografía. El diseño solo pone el lienzo.
+       Como habrá sesión profesional, todas parten en igualdad. Aun así, la
+       <b>A</b> y la <b>F</b> quieren fotos con color y luz, mientras la
+       <b>D</b> y la <b>G</b> se sostienen solas gracias al degradado. Si te
+       decides por una de las dos primeras, merece la pena llevar esa referencia
+       a la sesión de fotos.</p>
+    <p><b>Y una pregunta pendiente.</b> ¿Cuánto peso quieres que tenga el lado
+       más desenfadado de tu trabajo, sobre todo en terapia de pareja? Es lo que
        decidirá cuánto carácter y cuánto movimiento lleva la web. Ahora mismo
-       las propuestas están en un registro prudente: si tu consulta se
-       posiciona como cercana y con humor, hay bastante margen para subir el
-       tono, y conviene saberlo antes de cerrar la elección.</p>
+       están en un registro prudente, y si tu consulta se posiciona como cercana
+       y con humor hay bastante margen para subir el tono. Conviene saberlo
+       antes de cerrar.</p>
   </div>
 
 </div>
@@ -405,13 +457,85 @@ const VARIANTS = [
     ref:  "Manhattan Wellness. Al revisar tus cuatro referencias nos dimos cuenta de que dos de ellas usan botones de esquina recta, y sin embargo las cuatro primeras propuestas nos habían salido todas redondeadas. Faltaba darte la opción recta. Se basa en Manhattan y no en Fresh Start porque el botón de Fresh Start apenas se distingue como botón, y habríamos copiado ese defecto.",
     pro:  "La que más autoridad transmite, y la que menos se parece a una web de plantilla. Usa un solo color en toda la página, verde bosque sobre cremas cálidos, y esa contención es justo lo que da el aire de revista. Los titulares van en minúscula, que es el truco del sitio original para que la esquina recta no resulte seria de más. Como efecto secundario es la que mejor se lee de las cinco, con bastante diferencia.",
     con:  "Es la más exigente con la fotografía, no por el color sino por el encuadre: un diseño de revista pide fotos con aire alrededor y buena composición, y deja en evidencia una foto mal recortada. También es la que más se aleja del «divertido y cercano»: gana en solvencia lo que pierde en calidez inmediata. Y el verde oscuro aparece a propósito una sola vez, en la franja del final; si te apetece verlo más presente, es fácil de subir."
+  },
+  {
+    key: "F",
+    keyColor: "#F5853C",
+    name: "Cítrica Cristal",
+    file: "F-citrica-cristal.html",
+    thesis: "Tu Cítrica con paneles de vidrio. Mantiene su paleta y sus botones de cápsula.",
+    colors: [
+      { n: "Base",      v: "#FDF8F0" },
+      { n: "Cielo",     v: "#A8D0E2" },
+      { n: "Savia",     v: "#C4DBC4" },
+      { n: "Cítrico",   v: "#E4E356" },
+      { n: "Naranja",   v: "#F5853C" },
+      { n: "Tinta",     v: "#1F3D2B" }
+    ],
+    type: [
+      { tag: "Titular", css: '"Instrument Serif", Georgia, serif', size: "1.75rem", txt: "Therapy in NYC" },
+      { tag: "Botones y menú", css: '"Oswald", sans-serif', size: ".9375rem", txt: "BOOK A CONSULT", extra: "letter-spacing:.08em;text-transform:uppercase" },
+      { tag: "Texto", css: '"Lato", sans-serif', size: ".875rem", txt: "Un espacio donde aparecer se hace fácil." }
+    ],
+    facts: [
+      ["Esquinas",   "Botones de cápsula, paneles algo menos redondos."],
+      ["Relieve",    "Sombra suave, que la Cítrica no tenía."],
+      ["Detalle",    "Destellos dibujados, ahora sobre el vidrio."],
+      ["Legibilidad","Cumple con margen"]
+    ],
+    ref:  "Tu propia idea: los colores y el estilo de la Cítrica con el vidrio de la Cristal.",
+    pro:  "Conserva todo lo que hacía reconocible a la Cítrica, su paleta y sus botones de cápsula, y le añade la profundidad del vidrio. Los destellos ganan bastante: sobre el cristal tienen un fondo donde brillar, y sobre el color plano quedaban más sueltos. Es la más luminosa de las cuatro.",
+    con:  "El vidrio aquí es más discreto que en la Cristal, y por una razón física: el efecto necesita color variado detrás para notarse, y esta propuesta mantiene tus franjas de color planas. El degradado se concentra en la cabecera. Si lo que te enamoró de la Cristal fue precisamente ese efecto envolvente en toda la página, aquí lo vas a encontrar más contenido. También hereda de la Cítrica que quiere fotos con color y luz."
+  },
+  {
+    key: "G",
+    keyColor: "#7CC5E7",
+    name: "Cristal Suave",
+    file: "G-cristal-suave.html",
+    thesis: "La Cristal que te gustó, con la letra de la Cítrica. Solo cambia la tipografía.",
+    colors: [
+      { n: "Base",      v: "#FDF8F0" },
+      { n: "Melocotón", v: "#FFAF68" },
+      { n: "Cítrico",   v: "#E0DE55" },
+      { n: "Cielo",     v: "#7CC5E7" },
+      { n: "Coral",     v: "#FF937D" },
+      { n: "Tinta",     v: "#1F2A2E" }
+    ],
+    type: [
+      { tag: "Titular", css: '"Instrument Serif", Georgia, serif', size: "1.75rem", txt: "Therapy in NYC" },
+      { tag: "Cursiva recuperada", css: '"Instrument Serif", Georgia, serif', size: "1.5rem", txt: "a good fit", extra: "font-style:italic" },
+      { tag: "Texto", css: '"Lato", sans-serif', size: ".875rem", txt: "Un espacio donde aparecer se hace fácil." }
+    ],
+    facts: [
+      ["Esquinas",   "Igual que la Cristal, redondeo moderado."],
+      ["Relieve",    "Igual que la Cristal, sombra suave."],
+      ["Detalle",    "Franja de color de borde a borde."],
+      ["Legibilidad","Cumple con margen"]
+    ],
+    ref:  "Tu propia idea: la Cristal con una letra más suave, la de la Cítrica.",
+    pro:  "Es la Cristal intacta con otra letra, así que puedes juzgar solo eso. Y el cambio ha traído dos mejoras que no buscábamos. Vuelve la cursiva en los titulares, que con la letra anterior era una simple inclinación y no aportaba nada. Y el titular puede ir más grande, porque esta tipografía es más estrecha y cabe en tres líneas donde la otra necesitaba seis. El resultado tiene más presencia y más calidez que la Cristal original, que es lo que intuyo que pedías.",
+    con:  "Mezcla dos registros a propósito: letra clásica sobre un efecto muy actual. A nosotros nos funciona y creemos que es justo lo que buscabas, pero es un cruce y conviene mirarlo con calma junto a la Cristal original para confirmar que te suena mejor. Comparte con ella el resto de sus características, incluida la de apoyarse en la estética del momento."
   }
 ];
+
+/* ---------------------------------------------------------------
+   AGRUPACIÓN DE LA SEGUNDA RONDA
+   Arriba las dos que eligió Johanna y los dos cruces que propuso.
+   Abajo, plegadas, las tres que descartó: siguen accesibles pero
+   fuera del camino principal, porque poner siete opciones al mismo
+   nivel reabriría una decisión que ella ya cerró.
+   El orden A, D, F, G no es alfabético a propósito: primero las dos
+   originales y después su cruce correspondiente.
+   --------------------------------------------------------------- */
+const FINALISTAS = ["A", "D", "F", "G"];
+const conClave   = k => VARIANTS.find(v => v.key === k);
+const finalistas = FINALISTAS.map(conClave);
+const archivadas = VARIANTS.filter(v => !FINALISTAS.includes(v.key));
 
 /* --- tarjetas --- */
 const esc = s => String(s).replace(/[&<>]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;" }[c]));
 
-document.getElementById("variants").innerHTML = VARIANTS.map(v => `
+const tarjeta = v => `
   <section class="v">
     <header>
       <h2>
@@ -459,33 +583,41 @@ document.getElementById("variants").innerHTML = VARIANTS.map(v => `
       </div>
     </div>
   </section>
-`).join("");
+`;
 
-/* --- matriz --- */
+document.getElementById("variants").innerHTML = finalistas.map(tarjeta).join("");
+document.getElementById("archivo").innerHTML  = archivadas.map(tarjeta).join("");
+
+/* --- matriz: solo los cuatro finalistas, en el orden A, D, F, G --- */
 const ROWS = [
-  ["En qué se basa",       ["Ostler Therapy", "Fresh Start, sus azules sin usar", "Mezcla de tres de tus sitios", "Tu idea del efecto cristal", "Manhattan Wellness"]],
-  ["Sensación en una palabra", ["Luminosa", "Serena", "Acogedora", "Actual", "Firme"]],
-  ["Tipo de letra",        ["Clásica, con remate", "Clásica, con remate", "Clásica, con remate", "Moderna, sin remate", "Clásica, con remate"]],
-  ["Esquinas",             ["Cápsula, muy redonda", "Redondeo intermedio", "Redondeo amplio", "Redondeo moderado", "Rectas"]],
-  ["Relieve",              ["Ninguno", "Casi imperceptible", "Difuso y cálido", "Suave, necesario", "Uno solo en la página"]],
-  ["Temperatura",          ["Cálida con toque frío", "Fría con toque cálido", "La más cálida", "La más fría", "Cálida y contenida"]],
-  ["Cuántos colores usa",  ["Cinco", "Cinco", "Cinco", "Cuatro en degradado", "Uno solo"]],
-  ["Qué le pides a la foto", ["Color y luz, bastante", "Nada especial", "Nada especial", "No la necesita", "Buen encuadre y aire"]],
-  ["A quién le habla mejor", ["Quien busca energía", "Quien busca solvencia", "Quien busca refugio", "Quien busca algo actual", "Quien busca criterio"]],
-  ["Qué tener en cuenta",  ["Pierde fuerza sin fotos vivas", "No la has visto en ninguna referencia", "La más parecida al resto del sector", "Pide revisarse cada cierto tiempo", "La menos «divertida» de las cinco"]],
-  ["Legibilidad",          ["Cumple con margen", "Cumple con margen", "Cumple con margen", "Cumple con margen", "La más alta"]],
-  ["Tipografías gratuitas",["Sí, todas", "Sí, todas", "Sí, todas", "Sí, todas", "Sí, todas"]]
+  ["En qué se basa",       ["Ostler Therapy", "Tu idea del efecto cristal", "Cruce: colores de la A + cristal", "Cruce: la D + letra de la A"]],
+  ["Sensación en una palabra", ["Luminosa", "Actual", "Luminosa y con profundidad", "Actual y más cálida"]],
+  ["Tipo de letra",        ["Clásica, con remate", "Moderna, sin remate", "Clásica, con remate", "Clásica, con remate"]],
+  ["Esquinas",             ["Cápsula, muy redonda", "Redondeo moderado", "Cápsula en botones", "Redondeo moderado"]],
+  ["Relieve",              ["Ninguno", "Suave, necesario", "Suave", "Suave, necesario"]],
+  ["Efecto cristal",       ["No lleva", "En toda la página", "Solo en la cabecera", "En toda la página"]],
+  ["Paleta",               ["La tuya: cielo, savia, cítrico, naranja", "Melocotón, cítrico, cielo y coral", "La tuya, igual que la A", "Igual que la D"]],
+  ["Cursiva en titulares", ["Sí", "No", "Sí", "Sí, recuperada"]],
+  ["Qué le pides a la foto", ["Color y luz, bastante", "No la necesita", "Color y luz", "No la necesita"]],
+  ["Qué tener en cuenta",  ["Pierde fuerza sin fotos vivas", "La letra que quieres cambiar", "El cristal es más discreto", "Mezcla letra clásica con efecto actual"]],
+  ["Legibilidad",          ["Cumple con margen", "Cumple con margen", "Cumple con margen", "Cumple con margen"]],
+  ["Tipografías gratuitas",["Sí, todas", "Sí, todas", "Sí, todas", "Sí, todas"]]
 ];
 
-const KEYS = VARIANTS.map(v => v.key);
-const COLORS = VARIANTS.map(v => v.keyColor);
+/* garantía de que la tabla no se descuadre al editar: cada fila tiene
+   que traer tantos valores como finalistas hay */
+ROWS.forEach(([etiqueta, vals]) => {
+  if (vals.length !== finalistas.length) {
+    console.error(`Fila «${etiqueta}»: ${vals.length} valores para ${finalistas.length} propuestas`);
+  }
+});
 
 document.getElementById("matrix").innerHTML = `
   <thead>
     <tr>
       <th></th>
-      ${VARIANTS.map((v, i) => `
-        <th><span class="dot" style="background:${COLORS[i]}"></span>${v.key} · ${esc(v.name)}</th>`).join("")}
+      ${finalistas.map(v => `
+        <th><span class="dot" style="background:${v.keyColor}"></span>${v.key} · ${esc(v.name)}</th>`).join("")}
     </tr>
   </thead>
   <tbody>
