@@ -130,6 +130,15 @@
   .ask p { margin: 0 0 10px; max-width: 78ch; }
   .ask p:last-child { margin-bottom: 0; }
 
+  /* --- marca de la propuesta elegida --- */
+  .v--elegida { border-color: #1F3D2B; border-width: 2px; }
+  .badge {
+    display: inline-block; vertical-align: 3px; margin-left: 10px;
+    background: #1F3D2B; color: #fff; border-radius: 999px;
+    font-size: .625rem; font-weight: 600; letter-spacing: .1em;
+    text-transform: uppercase; padding: 4px 11px;
+  }
+
   /* --- bloque plegable de la primera ronda ---
      Presentar siete propuestas planas reabriría una decisión que
      Johanna ya cerró. Las tres descartadas quedan accesibles pero
@@ -172,16 +181,18 @@
   <a class="crumb" href="../index.html"><span>←</span> Portada</a>
 
   <header class="top">
-    <p class="meta">Segunda ronda</p>
-    <h1>Tus dos favoritas, y dos cruces entre ellas</h1>
-    <p>Dijiste que te quedabas con la <b>Cítrica</b> y la <b>Cristal</b>, y que
-       de las dos te tiraba algo más la Cristal. También apuntaste dos ideas muy
-       concretas: la Cristal con una letra más suave como la de la Cítrica, y la
-       Cítrica con el efecto cristal. Las dos estaban bien vistas, así que las
-       hemos construido.</p>
-    <p>Arriba tienes las cuatro que importan ahora: tus dos favoritas y los dos
-       cruces. Las otras tres siguen disponibles más abajo, guardadas, por si
-       quieres volver a mirarlas.</p>
+    <p class="meta">Dirección elegida</p>
+    <h1>Vamos con la Cítrica Cristal</h1>
+    <p>Elegiste la <b>F, Cítrica Cristal</b>, y con ella el azul de la cabecera
+       te parecía un pelo apagado al lado de los otros colores. Tenías razón, y
+       era medible: ese azul estaba bastante menos vivo que el amarillo y el
+       naranja que lo acompañan. Ya está <b>al mismo nivel de viveza que el
+       amarillo</b>, así que deja de ser el color flojo de la cabecera.</p>
+    <p>Y como dijiste que los bloques de color al bajar te gustan, esos no se han
+       tocado: el cambio afecta únicamente al degradado de la cabecera. Son dos
+       azules distintos y ahora los verás separados en su paleta.</p>
+    <p>Debajo siguen las otras tres de esta ronda, para que puedas comparar, y
+       más abajo las tres de la primera, guardadas.</p>
   </header>
 
   <div class="method">
@@ -463,14 +474,16 @@ const VARIANTS = [
     keyColor: "#F5853C",
     name: "Cítrica Cristal",
     file: "F-citrica-cristal.html",
-    thesis: "Tu Cítrica con paneles de vidrio. Mantiene su paleta y sus botones de cápsula.",
+    elegida: true,
+    thesis: "La elegida. Tu Cítrica con paneles de vidrio, y con el azul de la cabecera ya avivado.",
     colors: [
-      { n: "Base",      v: "#FDF8F0" },
-      { n: "Cielo",     v: "#A8D0E2" },
-      { n: "Savia",     v: "#C4DBC4" },
-      { n: "Cítrico",   v: "#E4E356" },
-      { n: "Naranja",   v: "#F5853C" },
-      { n: "Tinta",     v: "#1F3D2B" }
+      { n: "Base",              v: "#FDF8F0" },
+      { n: "Cielo · cabecera",  v: "#7BC5EA" },
+      { n: "Cielo · franjas",   v: "#A8D0E2" },
+      { n: "Savia",             v: "#C4DBC4" },
+      { n: "Cítrico",           v: "#E4E356" },
+      { n: "Naranja",           v: "#F5853C" },
+      { n: "Tinta",             v: "#1F3D2B" }
     ],
     type: [
       { tag: "Titular", css: '"Instrument Serif", Georgia, serif', size: "1.75rem", txt: "Therapy in NYC" },
@@ -478,6 +491,7 @@ const VARIANTS = [
       { tag: "Texto", css: '"Lato", sans-serif', size: ".875rem", txt: "Un espacio donde aparecer se hace fácil." }
     ],
     facts: [
+      ["Cambio que pediste", "Azul de la cabecera al nivel del amarillo. Las franjas, intactas."],
       ["Esquinas",   "Botones de cápsula, paneles algo menos redondos."],
       ["Relieve",    "Sombra suave, que la Cítrica no tenía."],
       ["Detalle",    "Destellos dibujados, ahora sobre el vidrio."],
@@ -536,10 +550,11 @@ const archivadas = VARIANTS.filter(v => !FINALISTAS.includes(v.key));
 const esc = s => String(s).replace(/[&<>]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;" }[c]));
 
 const tarjeta = v => `
-  <section class="v">
+  <section class="v${v.elegida ? " v--elegida" : ""}">
     <header>
       <h2>
         <span class="key" style="background:${v.keyColor}">${v.key}</span>${esc(v.name)}
+        ${v.elegida ? '<span class="badge">Elegida</span>' : ""}
         <small>${esc(v.thesis)}</small>
       </h2>
       <p class="links"><a href="${v.file}">Abrir a tamaño completo →</a></p>

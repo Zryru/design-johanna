@@ -73,8 +73,39 @@
   /* ---------- el mesh, con la paleta de A ----------
      Las cuatro manchas son colores de A, no los de D: cielo,
      savia, cítrico y naranja. Es lo que hace que el degradado se
-     reconozca como «la paleta de Johanna» y no como otro sitio. */
-  --mesh-1: #A8D0E2;   /* cielo */
+     reconozca como «la paleta de Johanna» y no como otro sitio.
+
+     AZUL AVIVADO (petición de Johanna, en dos pasos).
+     Dijo que el azul de la esquina superior izquierda se veía «un
+     pelo apagado en comparación a los otros colores», y tenía razón
+     medida: el cielo original #A8D0E2 estaba a 50% de saturación
+     mientras el cítrico va a 72% y el naranja a 90%. Era el menos
+     vivo de los tres que se ven en la cabecera.
+
+     Primer paso: #95CBE7, 63%. Pidió más.
+     Segundo paso: #7BC5EA, 73%.
+
+     El 73% no es arbitrario: es la saturación exacta del cítrico.
+     Con eso el azul deja de ser el color débil de la cabecera y
+     pasa a estar al mismo nivel de viveza que su vecino, que es
+     literalmente lo que ella describía.
+
+     Por qué se para aquí: el naranja #F5853C, a 90%, es el color de
+     acento de la paleta. Un azul por encima del cítrico empezaría a
+     competir con él y la jerarquía de color se desordena. Si aun
+     así quisiera más, está medido y todo cumple de sobra:
+       #6EC3ED → 78%   ·   #5ABFF2 → 85%   ·   #47B5F5 → 90%
+
+     El contraste NO es el límite en ninguno de esos casos: incluso
+     al 90% el texto sobre los paneles de vidrio se queda en 5.41:1,
+     por encima del 4.5 exigido. La decisión es solo estética.
+
+     OJO: esto NO toca --block-1, que es el azul de las franjas de
+     sección. Johanna dijo expresamente que los bloques de color le
+     gustan como están, y son tokens distintos.
+
+*/
+  --mesh-1: #7BC5EA;   /* cielo avivado al 73% — solo la cabecera */
   --mesh-2: #E4E356;   /* cítrico */
   --mesh-3: #C4DBC4;   /* savia */
   --mesh-4: #F5853C;   /* naranja */
