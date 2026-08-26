@@ -70,45 +70,40 @@
   --accent-3:    #F4F3B8;
   --accent-ink:  #4F4E0E;
 
-  /* ---------- el mesh, con la paleta de A ----------
-     Las cuatro manchas son colores de A, no los de D: cielo,
-     savia, cítrico y naranja. Es lo que hace que el degradado se
-     reconozca como «la paleta de Johanna» y no como otro sitio.
+  /* ---------- el degradado de la cabecera ----------
+     ESTE ES EL DE LA VARIANTE CRISTAL, NO EL DE A. Decisión de
+     Johanna, y es la última de una secuencia que conviene entender
+     para no deshacerla por error:
 
-     AZUL AVIVADO (petición de Johanna, en dos pasos).
-     Dijo que el azul de la esquina superior izquierda se veía «un
-     pelo apagado en comparación a los otros colores», y tenía razón
-     medida: el cielo original #A8D0E2 estaba a 50% de saturación
-     mientras el cítrico va a 72% y el naranja a 90%. Era el menos
-     vivo de los tres que se ven en la cabecera.
+       1. La primera versión arrancaba con el azul cielo de A en la
+          esquina superior izquierda.
+       2. Dijo que ese azul se veía «un pelo apagado en comparación
+          a los otros colores». Era cierto y medible: estaba a 50%
+          de saturación frente al 72% del cítrico. Se subió a 63%.
+       3. Pidió un poco más. Se subió a 73%, la saturación exacta
+          del cítrico.
+       4. Comparando con la variante Cristal Suave, dijo que en
+          realidad prefiere ese otro degradado: el que arranca en
+          naranjas y rojos en vez de en azul.
 
-     Primer paso: #95CBE7, 63%. Pidió más.
-     Segundo paso: #7BC5EA, 73%.
+     Conclusión: el problema nunca fue la viveza del azul, era que
+     el azul estuviera al principio. Con el arranque cálido
+     desaparece la causa, y los dos pasos de saturación quedan sin
+     efecto — el azul ya no está en la esquina, ahora es la mancha
+     de abajo a la derecha.
 
-     El 73% no es arbitrario: es la saturación exacta del cítrico.
-     Con eso el azul deja de ser el color débil de la cabecera y
-     pasa a estar al mismo nivel de viveza que su vecino, que es
-     literalmente lo que ella describía.
+     Valores y geometría idénticos a los de Cristal Suave, a
+     propósito. Es literalmente el fondo que eligió, así que no se
+     recolorea ni se reinterpreta.
 
-     Por qué se para aquí: el naranja #F5853C, a 90%, es el color de
-     acento de la paleta. Un azul por encima del cítrico empezaría a
-     competir con él y la jerarquía de color se desordena. Si aun
-     así quisiera más, está medido y todo cumple de sobra:
-       #6EC3ED → 78%   ·   #5ABFF2 → 85%   ·   #47B5F5 → 90%
-
-     El contraste NO es el límite en ninguno de esos casos: incluso
-     al 90% el texto sobre los paneles de vidrio se queda en 5.41:1,
-     por encima del 4.5 exigido. La decisión es solo estética.
-
-     OJO: esto NO toca --block-1, que es el azul de las franjas de
-     sección. Johanna dijo expresamente que los bloques de color le
-     gustan como están, y son tokens distintos.
-
-*/
-  --mesh-1: #7BC5EA;   /* cielo avivado al 73% — solo la cabecera */
-  --mesh-2: #E4E356;   /* cítrico */
-  --mesh-3: #C4DBC4;   /* savia */
-  --mesh-4: #F5853C;   /* naranja */
+     LO QUE SIGUE SIENDO DE A: las franjas de color de las secciones
+     (--block-1 cielo y --block-2 savia, que dijo que le gustan),
+     los botones de cápsula, la tinta verde, los destellos y la
+     tipografía. El cambio se limita a la cabecera. */
+  --mesh-1: #FFAF68;   /* melocotón — ahora el arranque, arriba a la izquierda */
+  --mesh-2: #E0DE55;   /* cítrico */
+  --mesh-3: #7CC5E7;   /* cielo — pasa a ser la mancha de abajo a la derecha */
+  --mesh-4: #FF937D;   /* coral — el rojo del centro del degradado */
 
   /* Mesh de página DESACTIVADO a propósito.
      glass.css monta un degradado fijo en el body con estos cuatro
@@ -168,20 +163,25 @@
 .cta-band  { background: var(--block-1); }
 
 /* ---------------------------------------------------------------
-   MESH SOLO EN EL HERO, A PLENA FUERZA
+   DEGRADADO SOLO EN EL HERO, A PLENA FUERZA
    Aquí sí puede ir saturado: todo el texto del hero vive sobre el
    panel de cristal, así que el contraste no depende del degradado.
+
+   La geometría es la de Cristal Suave, no solo los colores: mismas
+   posiciones de las manchas y mismo punto medio al 46%. Cambiar los
+   colores y dejar la geometría antigua no habría dado el mismo
+   fondo, que es lo que ella pidió.
    --------------------------------------------------------------- */
 .hero { position: relative; isolation: isolate; background: transparent; }
 .hero::before {
   content: ''; position: absolute; z-index: -1;
-  inset: 0 0 20% 0;
+  inset: 0 0 22% 0;
   background:
-    radial-gradient(62% 88% at 80% 26%, var(--mesh-2) 0%, transparent 70%),
-    radial-gradient(56% 84% at 96% 80%, var(--mesh-3) 0%, transparent 72%),
-    linear-gradient(112deg, var(--mesh-1) 0%, var(--mesh-4) 52%, var(--mesh-2) 100%);
+    radial-gradient(60% 90% at 78% 30%, var(--mesh-2) 0%, transparent 70%),
+    radial-gradient(55% 85% at 96% 78%, var(--mesh-3) 0%, transparent 72%),
+    linear-gradient(112deg, var(--mesh-1) 0%, var(--mesh-4) 46%, var(--mesh-2) 100%);
 }
-@media (max-width: 899px) { .hero::before { inset: 0 0 58% 0; } }
+@media (max-width: 899px) { .hero::before { inset: 0 0 60% 0; } }
 
 /* ---------------------------------------------------------------
    DESTELLOS — el recurso de A, que aquí gana sentido

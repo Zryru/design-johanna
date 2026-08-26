@@ -183,14 +183,15 @@
   <header class="top">
     <p class="meta">Dirección elegida</p>
     <h1>Vamos con la Cítrica Cristal</h1>
-    <p>Elegiste la <b>F, Cítrica Cristal</b>, y con ella el azul de la cabecera
-       te parecía un pelo apagado al lado de los otros colores. Tenías razón, y
-       era medible: ese azul estaba bastante menos vivo que el amarillo y el
-       naranja que lo acompañan. Ya está <b>al mismo nivel de viveza que el
-       amarillo</b>, así que deja de ser el color flojo de la cabecera.</p>
-    <p>Y como dijiste que los bloques de color al bajar te gustan, esos no se han
-       tocado: el cambio afecta únicamente al degradado de la cabecera. Son dos
-       azules distintos y ahora los verás separados en su paleta.</p>
+    <p>Elegiste la <b>F, Cítrica Cristal</b>. Primero comentaste que el azul de
+       la esquina de arriba se veía apagado, y al comparar viste claro que lo que
+       te gustaba de verdad era <b>el degradado de la Cristal Suave</b>, el que
+       arranca en naranjas y rojos. Ya lo tiene: la cabecera es esa, exactamente
+       la que elegiste.</p>
+    <p>Y todo lo demás sigue siendo la Cítrica. Los bloques de color al bajar,
+       que dijiste que te gustan, están intactos. También los botones de cápsula,
+       los destellos y la tipografía. El azul no desaparece, simplemente ya no
+       abre la página: ahora es la mancha suave de abajo a la derecha.</p>
     <p>Debajo siguen las otras tres de esta ronda, para que puedas comparar, y
        más abajo las tres de la primera, guardadas.</p>
   </header>
@@ -475,15 +476,17 @@ const VARIANTS = [
     name: "Cítrica Cristal",
     file: "F-citrica-cristal.html",
     elegida: true,
-    thesis: "La elegida. Tu Cítrica con paneles de vidrio, y con el azul de la cabecera ya avivado.",
+    thesis: "La elegida. Tu Cítrica con paneles de vidrio, y con la cabecera arrancando en naranjas.",
     colors: [
-      { n: "Base",              v: "#FDF8F0" },
-      { n: "Cielo · cabecera",  v: "#7BC5EA" },
-      { n: "Cielo · franjas",   v: "#A8D0E2" },
-      { n: "Savia",             v: "#C4DBC4" },
-      { n: "Cítrico",           v: "#E4E356" },
-      { n: "Naranja",           v: "#F5853C" },
-      { n: "Tinta",             v: "#1F3D2B" }
+      { n: "Cabecera · melocotón", v: "#FFAF68" },
+      { n: "Cabecera · coral",     v: "#FF937D" },
+      { n: "Cabecera · azul",      v: "#7CC5E7" },
+      { n: "Base",                 v: "#FDF8F0" },
+      { n: "Franja azul",          v: "#A8D0E2" },
+      { n: "Franja verde",         v: "#C4DBC4" },
+      { n: "Botón principal",      v: "#E4E356" },
+      { n: "Botón secundario",     v: "#F5853C" },
+      { n: "Tinta",                v: "#1F3D2B" }
     ],
     type: [
       { tag: "Titular", css: '"Instrument Serif", Georgia, serif', size: "1.75rem", txt: "Therapy in NYC" },
@@ -491,7 +494,7 @@ const VARIANTS = [
       { tag: "Texto", css: '"Lato", sans-serif', size: ".875rem", txt: "Un espacio donde aparecer se hace fácil." }
     ],
     facts: [
-      ["Cambio que pediste", "Azul de la cabecera al nivel del amarillo. Las franjas, intactas."],
+      ["Cambio que pediste", "Cabecera con el degradado de la Cristal Suave. Las franjas, intactas."],
       ["Esquinas",   "Botones de cápsula, paneles algo menos redondos."],
       ["Relieve",    "Sombra suave, que la Cítrica no tenía."],
       ["Detalle",    "Destellos dibujados, ahora sobre el vidrio."],
@@ -605,13 +608,13 @@ document.getElementById("archivo").innerHTML  = archivadas.map(tarjeta).join("")
 
 /* --- matriz: solo los cuatro finalistas, en el orden A, D, F, G --- */
 const ROWS = [
-  ["En qué se basa",       ["Ostler Therapy", "Tu idea del efecto cristal", "Cruce: colores de la A + cristal", "Cruce: la D + letra de la A"]],
+  ["En qué se basa",       ["Ostler Therapy", "Tu idea del efecto cristal", "La Cítrica + cristal + cabecera de la G", "Cruce: la D + letra de la A"]],
   ["Sensación en una palabra", ["Luminosa", "Actual", "Luminosa y con profundidad", "Actual y más cálida"]],
   ["Tipo de letra",        ["Clásica, con remate", "Moderna, sin remate", "Clásica, con remate", "Clásica, con remate"]],
   ["Esquinas",             ["Cápsula, muy redonda", "Redondeo moderado", "Cápsula en botones", "Redondeo moderado"]],
   ["Relieve",              ["Ninguno", "Suave, necesario", "Suave", "Suave, necesario"]],
   ["Efecto cristal",       ["No lleva", "En toda la página", "Solo en la cabecera", "En toda la página"]],
-  ["Paleta",               ["La tuya: cielo, savia, cítrico, naranja", "Melocotón, cítrico, cielo y coral", "La tuya, igual que la A", "Igual que la D"]],
+  ["Paleta",               ["La tuya: cielo, savia, cítrico, naranja", "Melocotón, cítrico, cielo y coral", "La tuya en la página, melocotón y coral en la cabecera", "Igual que la D"]],
   ["Cursiva en titulares", ["Sí", "No", "Sí", "Sí, recuperada"]],
   ["Qué le pides a la foto", ["Color y luz, bastante", "No la necesita", "Color y luz", "No la necesita"]],
   ["Qué tener en cuenta",  ["Pierde fuerza sin fotos vivas", "La letra que quieres cambiar", "El cristal es más discreto", "Mezcla letra clásica con efecto actual"]],
