@@ -131,8 +131,13 @@ section { padding-block: var(--sp-9); }
 .wordmark { text-decoration: none; color: var(--ink); line-height: 1; }
 .wordmark b {
   display: block;
-  font-family: var(--font-display);
-  font-weight: var(--display-weight, 400);
+  /* --font-wordmark es opcional: si una variante no lo declara, cae en
+     --font-display como siempre. Existe para las variantes donde el
+     nombre de Johanna lleva una display distinta a la de los títulos
+     de sección — el logo como pieza aparte, igual que hace Ostler
+     con su rótulo. */
+  font-family: var(--font-wordmark, var(--font-display));
+  font-weight: var(--wordmark-weight, var(--display-weight, 400));
   font-size: 1.5rem;
   letter-spacing: var(--wordmark-tracking, -0.01em);
   text-transform: var(--wordmark-case, none);

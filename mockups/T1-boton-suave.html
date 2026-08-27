@@ -5,144 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<title>D · Cristal — Johanna Bellorin, LCSW</title>
+<title>T1 · Botón suave — Johanna Bellorin, LCSW</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared/skeleton.css">
 <link rel="stylesheet" href="shared/glass.css">
 <style>
 /* =============================================================
-   VARIANTE D · CRISTAL  (glassmorphism)
-   La outsider deliberada de las cuatro.
+   VARIANTE T1 · BOTÓN SUAVE
+   Ronda de tipografía. Es F (Cítrica Cristal) tal cual, cambiando
+   una sola cosa: Oswald sale, DM Sans entra en botones y menú.
+   Los titulares y el nombre se quedan en Instrument Serif, igual
+   que en F. Las mayúsculas y el tracking amplio se mantienen.
 
-   ⚠️ Rompe tres decisiones del esqueleto a propósito:
-      pill total → radio moderado
-      cero sombras → sombra difusa (el cristal necesita separarse)
-      color plano → degradado (sin nada detrás, el cristal es
-                     una caja gris)
-
-   ⚠️ Es la única que se aparta del patrón de las 4 referencias
-      que eligió Johanna: todas usan display SERIF (Agne, Abhaya
-      Libre, Instrument Serif, Caudex). Aquí va sans porque el
-      cristal con serif no pega.
-
-   ⚠️ Tensión con el brief: el brief pide «warm, zero cold» y el
-      glassmorphism lee frío y tecnológico. Se templa con degradado
-      cálido en vez del típico azul-violeta, pero sigue siendo la
-      más fría de las cuatro.
+   PARA QUÉ SIRVE ESTA VARIANTE
+   Aísla una sola variable. Si a Johanna esto ya le convence, el
+   problema era Oswald y no hace falta tocar nada más. Si sigue
+   pareciéndole dura, no era la fuente del botón: era otra cosa
+   (candidato principal, las mayúsculas — eso lo prueban T2, T3 y
+   T4, que las quitan).
    ============================================================= */
 :root {
-  /* ---------- base ---------- */
   --bg:        #FDF8F0;
-  --bg-alt:    #FFF4E6;
-  --block-1:   transparent;   /* las bandas dejan ver el degradado */
-  --block-2:   transparent;
+  --bg-alt:    #DCEEF5;
+  --block-1:   #A8D0E2;
+  --block-2:   #C4DBC4;
   --surface:   rgba(255,255,255,.55);
 
-  /* ---------- degradado de fondo ----------
-     Cálido a propósito: melocotón, cítrico, cielo y coral.
-     Sin esto no hay efecto cristal.
-     Nota: la primera versión iba mucho más pálida y el cristal no
-     se leía — el panel translúcido parecía una caja blanca. Estos
-     tonos están saturados lo justo para que el desenfoque se vea
-     sin comprometer el contraste del texto (ver medición abajo). */
-  --mesh-1: #FFAF68;   /* melocotón */
-  --mesh-2: #E0DE55;   /* cítrico, el mismo del CTA secundario */
-  --mesh-3: #7CC5E7;   /* cielo */
-  --mesh-4: #FF937D;   /* coral */
+  --ink:       #1F3D2B;
+  --ink-muted: #3F5346;
+  --hairline:  rgba(31,61,43,.14);
 
-  /* Versión lavada al 50%, para el mesh de página (body).
-     Motivo: la banda del hero puede ir a plena saturación porque
-     ahí TODO el texto vive sobre un panel de cristal. El mesh de
-     body, en cambio, queda debajo de los intros de sección, que
-     son texto plano: sobre el coral a plena fuerza el .lead caía
-     a 3.31:1 y el eyebrow a 4.27:1. Medido a lo largo de la escala
-     de opacidad, el efecto cristal apenas se resiente (fuerza
-     1.18 → 1.10) mientras el .lead sube a 4.74:1 y el eyebrow a
-     6.12:1. Es la concesión más barata del conjunto. */
-  --mesh-1-wash: rgba(255,175,104,.5);
-  --mesh-2-wash: rgba(224,222,85,.5);
-  --mesh-3-wash: rgba(124,197,231,.5);
-  --mesh-4-wash: rgba(255,147,125,.5);
+  --accent:      #E4E356;
+  --accent-fg:   #1F3D2B;
+  --accent-2:    #F5853C;
+  --accent-2-fg: #1F3D2B;
+  --accent-3:    #F4F3B8;
+  --accent-ink:  #4F4E0E;
 
-  /* ---------- cristal ---------- */
+  /* degradado de cabecera: el de Cristal Suave, igual que en F */
+  --mesh-1: #FFAF68;
+  --mesh-2: #E0DE55;
+  --mesh-3: #7CC5E7;
+  --mesh-4: #FF937D;
+  --mesh-1-wash: transparent;
+  --mesh-2-wash: transparent;
+  --mesh-3-wash: transparent;
+  --mesh-4-wash: transparent;
+
   --glass-bg:        rgba(255,255,255,.48);
-  --glass-bg-nav:    rgba(255,255,255,.62);
-  /* .68 en vez de .78: a .78 el panel del hero leía como tarjeta
-     blanca y se perdía el efecto. A .68 se ve el cristal y el peor
-     caso de contraste sigue por encima de 5.9:1 (medido). */
+  --glass-bg-nav:    rgba(255,255,255,.66);
   --glass-bg-solid:  rgba(255,255,255,.68);
   --glass-blur:      22px;
   --glass-sat:       160%;
-  --glass-border:    rgba(255,255,255,.55);
-  --glass-border-hi: rgba(31,42,46,.28);
+  --glass-border:    rgba(255,255,255,.58);
+  --glass-border-hi: rgba(31,61,43,.28);
   --glass-sheen:     rgba(255,255,255,.95);
-  --glass-shadow:    0 14px 40px rgba(31,42,46,.10);
-  --glass-fallback:  #FFFCF7;               /* repliegue sólido */
+  --glass-shadow:    0 14px 40px rgba(31,61,43,.10);
+  --glass-fallback:  #FFFCF6;
 
-  /* ---------- tinta ---------- */
-  --ink:       #1F2A2E;
-  --ink-muted: #4C5A60;
-  --hairline:  rgba(31,42,46,.14);
-
-  /* ---------- acentos ----------
-     CTA primario en tinta oscura sobre blanco: contraste altísimo
-     y encaja con el registro minimalista. El coral y el naranja no
-     llegan a 4.5:1 con blanco, así que no se usan como fondo de
-     botón — solo como color del degradado.
-     Secundario: cítrico con tinta → 10.8:1 ✓ */
-  --accent:      #1F2A2E;
-  --accent-fg:   #FFFFFF;
-  --accent-2:    #E4E356;
-  --accent-2-fg: #1F2A2E;
-  --accent-3:    rgba(255,255,255,.62);
-  --accent-ink:  #3A4A50;
-
-  /* ---------- tipografía ----------
-     Sans geométrica, tracking apretado, mucho aire.
-     Ambas libres en Google Fonts. */
-  --font-display: "Instrument Sans", system-ui, sans-serif;
-  --font-ui:      "Instrument Sans", system-ui, sans-serif;
-  --font-body:    "Inter", system-ui, sans-serif;
-  --display-weight: 600;
-  --display-tracking: -0.035em;
+  /* ---------- ÚNICO CAMBIO REAL DE ESTA VARIANTE ----------
+     --font-ui pasa de Oswald a DM Sans. Todo lo demás (mayúsculas,
+     tracking, peso) se conserva igual que en F para que la
+     comparación sea limpia: solo cambia la letra. */
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-ui:      "DM Sans", system-ui, sans-serif;
+  --font-body:    "Lato", system-ui, sans-serif;
+  --display-tracking: -0.02em;
   --ui-weight: 500;
-  --wordmark-tracking: -0.03em;
 
-  /* ---------- forma ---------- */
-  --radius:      24px;
-  --radius-sm:   14px;
-  --radius-pill: 999px;
+  --radius:      28px;
+  --radius-sm:   16px;
+  --radius-pill: 300px;
   --shadow:      var(--glass-shadow);
 }
-/* el minimalismo pide menos peso en la cursiva */
-h1 em, h2 em { font-style: normal; color: var(--ink-muted); font-weight: 400; }
-/* los iconos de trazo se afinan */
-.traits svg, .card__icon svg { stroke-width: 1.25; }
 
-/* ---------------------------------------------------------------
-   Escala rebajada, específica de esta variante.
-   Instrument Sans 600 es bastante más ancho que un serif, y el
-   panel de cristal le come ~100px de ancho con su propio padding.
-   Con la escala del esqueleto el titular salía a seis líneas.
-   --------------------------------------------------------------- */
-h1 { font-size: clamp(2.125rem, 3.6vw, 3rem); line-height: 1.08; }
-h2 { font-size: clamp(1.625rem, 2.6vw, 2.25rem); }
-.hero__copy { padding: clamp(24px, 2.6vw, 38px); }
-.hero__grid { align-items: start; }
+.video     { background: var(--block-1); }
+.insurance { background: var(--block-2); }
+.cta-band  { background: var(--block-1); }
 
-/* ---------------------------------------------------------------
-   BANDA DE BORDE A BORDE DETRÁS DEL HERO
-   Esto es lo que hace que el cristal se lea. Sobre el degradado
-   suave el panel parecía una tarjeta blanca esmerilada: el
-   glassmorphism sobre base clara es sutil por naturaleza, el
-   efecto reconocible se apoya en fondo oscuro o foto saturada.
-   La banda resuelve eso sin foto: es un mesh gradient de borde a borde,
-   elemento de diseño por derecho propio. Ventaja lateral — esta
-   variante es la única que no depende de una sesión de fotos.
-   --------------------------------------------------------------- */
-.hero { position: relative; isolation: isolate; }
+.hero { position: relative; isolation: isolate; background: transparent; }
 .hero::before {
   content: ''; position: absolute; z-index: -1;
   inset: 0 0 22% 0;
@@ -151,14 +94,17 @@ h2 { font-size: clamp(1.625rem, 2.6vw, 2.25rem); }
     radial-gradient(55% 85% at 96% 78%, var(--mesh-3) 0%, transparent 72%),
     linear-gradient(112deg, var(--mesh-1) 0%, var(--mesh-4) 46%, var(--mesh-2) 100%);
 }
-/* el marcador de foto se vuelve cristal, para no competir con la banda */
-.photo {
-  background: var(--glass-bg) !important;
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)) !important;
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)) !important;
-  border: 1px solid var(--glass-border);
-}
 @media (max-width: 899px) { .hero::before { inset: 0 0 60% 0; } }
+
+.sparkle { position: absolute; pointer-events: none; opacity: .95; z-index: 2; }
+.sparkle svg { stroke: var(--ink); fill: none; stroke-width: 1.6; }
+.s1 { top: 6%;  right: 8%;  width: 46px; }
+.s2 { top: 24%; right: 3%;  width: 28px; }
+.s3 { bottom: 12%; left: 2%; width: 34px; }
+
+h1 em, h2 em, h3 em { font-style: italic; }
+h1 { font-size: clamp(2.375rem, 4.6vw, 3.625rem); line-height: 1.05; }
+h2 { font-size: clamp(1.75rem, 3.2vw, 2.5rem); }
 </style>
 </head>
 <body>
@@ -176,27 +122,27 @@ h2 { font-size: clamp(1.625rem, 2.6vw, 2.25rem); }
 
 <header class="hero">
   <div class="wrap hero__grid">
-    <!-- el texto largo va sobre panel opaco: el contraste no se
-         puede garantizar contra un degradado variable -->
-    <div class="hero__copy">
+    <div class="hero__copy" style="position:relative">
+      <span class="sparkle s1"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span>
       <p class="eyebrow">Welcome — licensed clinical social worker</p>
       <h1>Therapy in NYC that doesn't feel like a <em>cold chore</em>.</h1>
       <p class="lead">Warm, engaged and direct. A space where showing up feels easy,
          and where the work actually goes somewhere.</p>
       <div class="hero__cta">
         <a class="btn" href="#book">Book a free consult</a>
-        <a class="btn btn--2" href="#services">See how I work</a>
+        <a class="btn btn--ghost" href="#services">See how I work</a>
       </div>
+      <ul class="traits">
+        <li><svg viewBox="0 0 24 24"><path d="M3 18a9 9 0 0 1 18 0"/><path d="M7 18a5 5 0 0 1 10 0"/></svg>Individual therapy</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>Couples</li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9z"/></svg>Life transitions</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 20L20 4M14 4h6v6"/></svg>Honest &amp; direct</li>
+      </ul>
     </div>
-    <div><div class="photo"><span class="photo__tag">Foto de Johanna</span></div></div>
-  </div>
-  <div class="wrap">
-    <ul class="traits" style="justify-content:space-between;max-width:640px">
-      <li><svg viewBox="0 0 24 24"><path d="M3 18a9 9 0 0 1 18 0"/><path d="M7 18a5 5 0 0 1 10 0"/></svg>Individual therapy</li>
-      <li><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>Couples</li>
-      <li><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9z"/></svg>Life transitions</li>
-      <li><svg viewBox="0 0 24 24"><path d="M4 20L20 4M14 4h6v6"/></svg>Honest &amp; direct</li>
-    </ul>
+    <div style="position:relative">
+      <span class="sparkle s2"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></span>
+      <div class="photo"><span class="photo__tag">Foto de Johanna</span></div>
+    </div>
   </div>
 </header>
 
@@ -282,7 +228,8 @@ h2 { font-size: clamp(1.625rem, 2.6vw, 2.25rem); }
 </section>
 
 <section id="faq">
-  <div class="wrap">
+  <div class="wrap" style="position:relative">
+    <span class="sparkle s3"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14"/></svg></span>
     <p class="eyebrow">Good to know</p>
     <h2>Questions people ask first</h2>
     <div class="faq glass" style="margin-top:var(--sp-6);padding:var(--sp-6)">
@@ -307,13 +254,11 @@ h2 { font-size: clamp(1.625rem, 2.6vw, 2.25rem); }
 
 <section class="cta-band" id="book">
   <div class="wrap">
-    <div class="glass" style="padding:var(--sp-8) var(--sp-6);display:grid;justify-items:center;gap:var(--sp-4)">
-      <p class="eyebrow">Ready when you are</p>
-      <h2 style="max-width:22ch">Let's find out if we're a <em>good fit</em>.</h2>
-      <p class="lead" style="max-width:52ch">A free 15-minute call. No pressure, no
-         commitment — just a conversation.</p>
-      <a class="btn" href="#">Book a free consult</a>
-    </div>
+    <p class="eyebrow">Ready when you are</p>
+    <h2 style="max-width:22ch">Let's find out if we're a <em>good fit</em>.</h2>
+    <p class="lead" style="max-width:52ch">A free 15-minute call. No pressure, no
+       commitment — just a conversation.</p>
+    <a class="btn" href="#">Book a free consult</a>
   </div>
 </section>
 
@@ -339,11 +284,8 @@ h2 { font-size: clamp(1.625rem, 2.6vw, 2.25rem); }
 
 <nav class="variant-bar">
   <strong>Variante</strong>
-  <a href="A-citrica.html">A · Cítrica</a>
-  <a href="D-cristal.html" aria-current="page">D · Cristal</a>
   <a href="F-citrica-cristal.html">F · Cítrica Cristal</a>
-  <a href="G-cristal-suave.html">G · Cristal Suave</a>
-  <a href="T1-boton-suave.html">T1 · Botón suave</a>
+  <a href="T1-boton-suave.html" aria-current="page">T1 · Botón suave</a>
   <a href="T2-firma-caracter.html">T2 · Firma con carácter</a>
   <a href="T3-alegre.html">T3 · Alegre</a>
   <a href="T4-editorial-fina.html">T4 · Editorial fina</a>
